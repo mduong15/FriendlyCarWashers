@@ -36,7 +36,7 @@ public class CityScene {
 		Scanner fs=new Scanner(new File("./src/Data/"+city));
 		while(fs.hasNextLine()){
 			String[] data=fs.nextLine().split(";");
-			CarWash toAdd=new CarWash(data[0],Double.parseDouble(data[1]),-1.0,data[2],null);
+			CarWash toAdd=new CarWash(data[0],  Double.parseDouble(data[1]),  -1.0,  data[2], null);
 			data=fs.nextLine().split(";");
 			ArrayList<Review> reviews=new ArrayList<>();
 			int count=0;double sum=0.;

@@ -15,7 +15,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jc.View.WriteScene">
    <children>
-      <BorderPane prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #e1e6ef;">
+      <BorderPane prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #e1e6ef;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <Label fx:id="title" text="You have chosen: ERROR" BorderPane.alignment="CENTER">
                <padding>
@@ -29,9 +29,9 @@
          <bottom>
             <HBox prefHeight="63.0" prefWidth="800.0" spacing="95.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="back" mnemonicParsing="false" onAction="#back" prefHeight="39.0" prefWidth="71.0" text="Back">
+                  <Button fx:id="back" mnemonicParsing="false" onAction="#back" prefHeight="29.0" prefWidth="51.0" text="Back" translateX="-6.0" translateY="35.0">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Button>
                   <Label fx:id="warning" text="Please enter an Integer between 1 and 5 for Rating" textFill="#fc1723" visible="false">
@@ -39,7 +39,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="confirm" mnemonicParsing="false" onAction="#confirm" prefHeight="39.0" prefWidth="117.0" text="Confirm">
+                  <Button fx:id="confirm" mnemonicParsing="false" onAction="#confirm" prefHeight="34.0" prefWidth="104.0" text="Confirm">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -77,9 +77,9 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="rating" prefHeight="38.0" prefWidth="582.0" GridPane.columnIndex="1">
+                  <TextField fx:id="rating" prefHeight="21.0" prefWidth="58.0" GridPane.columnIndex="1">
                      <font>
-                        <Font size="19.0" />
+                        <Font size="14.0" />
                      </font>
                      <GridPane.margin>
                         <Insets right="550.0" />
