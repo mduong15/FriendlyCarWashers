@@ -22,8 +22,8 @@ public class StartScene {
 	
 	@FXML Object select() throws IOException{
 		CityScene.city=cities.getSelectionModel().getSelectedItem();
-		if(CityScene.city==null||CityScene.city.equals(""))return null;
-		Main.swapScene("CityScene.fxml");
+		if(CityScene.city!=null&&!CityScene.city.equals(""))
+			Main.swapScene("CityScene.fxml");
 		return null;
 	}
 }
