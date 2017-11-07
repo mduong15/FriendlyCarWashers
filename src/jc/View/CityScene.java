@@ -26,7 +26,7 @@ public class CityScene {
 	@FXML Button rateSort;
 	@FXML Button select;
 	@FXML Button back;
-	
+	@FXML Button quit;
 	private ObservableList<CarWash> washList;
 	
 	public void initialize() throws FileNotFoundException{
@@ -83,6 +83,11 @@ public class CityScene {
 	@FXML public Object back() throws IOException{
 		city=null;
 		Main.swapScene("StartScene.fxml");
+		return null;
+	}
+	@FXML public Object quit()
+	{
+		System.exit(0);
 		return null;
 	}
 	
