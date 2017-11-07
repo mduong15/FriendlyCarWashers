@@ -42,8 +42,13 @@
                   <HBox prefHeight="264.0" prefWidth="800.0" spacing="50.0">
                      <children>
                         <ListView fx:id="washes" prefHeight="255.0" prefWidth="446.0" />
-                        <VBox prefHeight="245.0" prefWidth="199.0" spacing="15.0">
+                        <VBox prefHeight="271.0" prefWidth="195.0" spacing="15.0">
                            <children>
+                              <Button fx:id="select" mnemonicParsing="false" onAction="#select" prefHeight="44.0" prefWidth="159.0" text="Select">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
                               <Button fx:id="priceSort" mnemonicParsing="false" onAction="#priceSort" prefHeight="32.0" prefWidth="158.0" text="Sort by Price">
                                  <font>
                                     <Font size="18.0" />
@@ -54,7 +59,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="select" mnemonicParsing="false" onAction="#select" prefHeight="44.0" prefWidth="159.0" text="Select">
+                              <Button fx:id="back" mnemonicParsing="false" onAction="#back" prefHeight="78.0" prefWidth="160.0" text="Change City">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -74,13 +79,6 @@
                </children>
             </VBox>
          </center>
-         <bottom>
-            <Button fx:id="back" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="60.0" text="Back" BorderPane.alignment="TOP_LEFT">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-         </bottom>
       </BorderPane>
    </children>
 </AnchorPane>
