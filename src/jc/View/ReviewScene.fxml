@@ -49,17 +49,17 @@
                                     <Font size="18.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="changeCity" mnemonicParsing="false" onAction="#changeCity" prefHeight="45.0" prefWidth="150.0" text="Change City">
+                              <Button fx:id="changeCity" mnemonicParsing="false" onAction="#changeCity" prefHeight="45.0" prefWidth="146.0" text="Change City">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="back" mnemonicParsing="false" onAction="#back" prefHeight="44.0" prefWidth="150.0" text="Back">
+                              <Button fx:id="back" mnemonicParsing="false" onAction="#back" prefHeight="44.0" prefWidth="146.0" text="Back">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="quit2" lineSpacing="100.0" mnemonicParsing="false" onAction="#quit2" prefHeight="45.0" prefWidth="143.0" text="Quit">
+                              <Button fx:id="quit2" lineSpacing="100.0" mnemonicParsing="false" onAction="#quit2" prefHeight="45.0" prefWidth="146.0" text="Quit">
                                  <font>
                                     <Font size="18.0" />
                                  </font>

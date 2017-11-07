@@ -26,6 +26,7 @@ public class ReviewScene {
 	@FXML Button quit2;
 	@FXML Button changeCity;
 	
+	
 	private ObservableList<Review> rev;
 	
 	public void initialize() throws FileNotFoundException{
@@ -65,4 +66,5 @@ public class ReviewScene {
 		//dummy comment
 		return null;
 	}
+	
 }

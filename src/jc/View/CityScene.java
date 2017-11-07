@@ -1,5 +1,6 @@
 package jc.View;
 
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -27,6 +28,8 @@ public class CityScene {
 	@FXML Button select;
 	@FXML Button back;
 	@FXML Button quit;
+	@FXML Button information;
+	
 	private ObservableList<CarWash> washList;
 	
 	public void initialize() throws FileNotFoundException{
@@ -88,6 +91,13 @@ public class CityScene {
 	@FXML public Object quit()
 	{
 		System.exit(0);
+		return null;
+	}
+	@FXML public Object information() throws IOException
+	{
+		ReviewScene.cw=washes.getSelectionModel().getSelectedItem();
+		if(ReviewScene.cw==null)return null;
+		Main.swapScene("MoreInformation.fxml");
 		return null;
 	}
 	
