@@ -21,7 +21,11 @@ public class WriteScene {
 	@FXML Label title;
 	@FXML Label warning;
 	
+	
+	private boolean editing;
 	public void initialize() throws FileNotFoundException{
+		editing = false;
+		
 		 title.setText("Reviewing: "+ReviewScene.cw.getName());
 		 
 		 File[] files=new File("./src/DataMock").listFiles();
@@ -32,6 +36,7 @@ public class WriteScene {
 				 reviewBody.setText(data[0]);
 				 rating.setText(data[1]);
 				 fs.close();
+				 editing = true;
 				 break LOOP;
 			 }
 		 }
@@ -55,6 +60,10 @@ public class WriteScene {
 		body=sb.toString().trim();
 		body+=";"+newRating;
 		pw.write(body);
+		if(editing)
+			pw.write(";Edited");
+		else
+			pw.write(";Not");
 		pw.close();
 		Main.swapScene("ReviewScene.fxml");
 		return null;

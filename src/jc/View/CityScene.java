@@ -42,7 +42,7 @@ public class CityScene {
 			int count=0;double sum=0.;
 			while(!data[0].equals("#")){
 				int rating=Integer.parseInt(data[1]);
-				reviews.add(new Review(data[0],rating));
+				reviews.add(new Review(data[0],rating, false));
 				count++;sum+=rating;
 				data=fs.nextLine().split(";");
 			}

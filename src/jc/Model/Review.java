@@ -5,8 +5,9 @@ import java.text.DecimalFormat;
 public class Review {
 	private int mRating;
 	private String mReview;
-	public Review(String review,int rating){
-		mRating=rating;mReview=review;
+	public boolean edited;
+	public Review(String review,int rating, boolean edited){
+		mRating=rating;mReview=review;this.edited = edited;
 	}
 	public double getmRating() {
 		return mRating;
@@ -22,6 +23,6 @@ public class Review {
 	}
 	@Override public String toString(){
 		DecimalFormat f=new DecimalFormat("#.0");
-		return f.format(mRating)+" / 5.0\n"+mReview+"\n\n";
+		return (edited?"(Edited) \n":"") + f.format(mRating)+" / 5.0\n"+mReview+"\n\n";
 	}
 }

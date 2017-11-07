@@ -37,7 +37,7 @@ public class ReviewScene {
 				 Scanner fs=new Scanner(f);
 				 review.setText("Edit Review");
 				 String data[]=fs.nextLine().split(";");
-				 rev.add(new Review(data[0],Integer.parseInt(data[1])));
+				 rev.add(new Review(data[0],Integer.parseInt(data[1]), data[2].equals("Edited")));
 				 fs.close();
 				 break LOOP;
 			 }
@@ -59,7 +59,7 @@ public class ReviewScene {
 		System.exit(0);
 		return null;
 	}
-	@FXML public Object changeCity()
+	@FXML public Object changeCity() throws IOException
 	{
 		Main.swapScene("StartScene.fxml");
 		return null;
