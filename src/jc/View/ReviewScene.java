@@ -59,7 +59,7 @@ public class ReviewScene {
 		System.exit(0);
 		return null;
 	}
-	@FXML public Object changeCity()
+	@FXML public Object changeCity() throws IOException
 	{
 		Main.swapScene("StartScene.fxml");
 		return null;
