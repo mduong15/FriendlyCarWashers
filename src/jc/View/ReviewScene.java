@@ -24,6 +24,7 @@ public class ReviewScene {
 	@FXML ListView<Review> reviewView;
 	@FXML Label title;
 	@FXML Button quit2;
+	@FXML Button changeCity;
 	
 	private ObservableList<Review> rev;
 	
@@ -58,5 +59,9 @@ public class ReviewScene {
 		System.exit(0);
 		return null;
 	}
-	
+	@FXML public Object changeCity()
+	{
+		Main.swapScene("StartScene.fxml");
+		return null;
+	}
 }
