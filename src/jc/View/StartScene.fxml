@@ -45,7 +45,7 @@
                   <HBox prefHeight="256.0" prefWidth="509.0" spacing="50.0">
                      <children>
                         <ListView fx:id="cities" prefHeight="181.0" prefWidth="200.0" />
-                        <Button fx:id="select" mnemonicParsing="false" onAction="#select" prefHeight="51.0" prefWidth="106.0" text="Select!">
+                        <Button fx:id="select" mnemonicParsing="false" onAction="#select" text="Select!">
                            <font>
                               <Font size="18.0" />
                            </font>

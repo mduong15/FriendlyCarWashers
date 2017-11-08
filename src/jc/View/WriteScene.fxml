@@ -34,9 +34,9 @@
          <bottom>
             <HBox prefHeight="77.0" prefWidth="788.0" spacing="95.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="back" mnemonicParsing="false" onAction="#back" prefHeight="39.0" prefWidth="117.0" text="Back" translateX="-6.0" translateY="35.0">
+                  <Button fx:id="back" mnemonicParsing="false" onAction="#back" prefHeight="29.0" prefWidth="56.0" text="Back" translateX="-6.0" translateY="47.0">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Button>
                   <Label fx:id="warning" text="Please enter an Integer between 1 and 5 for Rating" textFill="#fc1723" visible="false">
@@ -44,7 +44,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="confirm" mnemonicParsing="false" onAction="#confirm" prefHeight="45.0" prefWidth="154.0" text="Confirm">
+                  <Button fx:id="confirm" mnemonicParsing="false" onAction="#confirm" prefHeight="45.0" prefWidth="120.0" text="Submit">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -90,7 +90,7 @@
                         <Insets right="550.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextArea fx:id="reviewBody" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextArea fx:id="reviewBody" prefHeight="248.0" prefWidth="608.0" translateY="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
          </center>

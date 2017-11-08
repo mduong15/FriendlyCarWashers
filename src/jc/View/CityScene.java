@@ -22,7 +22,7 @@ public class CityScene {
 	static String city;
 	
 	@FXML Label title;
-	@FXML Label tableLabel;
+	@FXML Label indicator;
 	@FXML ListView<CarWash> washes;
 	@FXML Button priceSort;
 	@FXML Button rateSort;
@@ -66,7 +66,8 @@ public class CityScene {
 				return 0;
 			}
 		});
-		tableLabel.setText("Name / Price ▲ / Rating / Address");
+		indicator.setText("The list has been sorted by price from the cheapest to the most expensive!");
+		indicator.setVisible(true);
 		return null;
 	}
 	@FXML public Object rateSort(){
@@ -77,7 +78,8 @@ public class CityScene {
 				return 0;
 			}
 		});
-		tableLabel.setText("Name / Price / Rating ▼ / Address");
+		indicator.setText("The list has been sorted by rating from the lowest to the highest!");
+		indicator.setVisible(true);
 		return null;
 	}
 	@FXML public Object select() throws IOException{

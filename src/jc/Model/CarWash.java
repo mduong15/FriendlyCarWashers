@@ -44,10 +44,23 @@ public class CarWash {
 	public void setReviews(ArrayList<Review> mReviews) {
 		this.mReviews =new ArrayList<>(mReviews);
 	}
+	public String starRating (double AverageRating) 
+	{
+		String starRate = "";
+		int rating = (int) Math.round(AverageRating);
+		for (int i = 1; i <= rating; i++)
+		starRate += "★";
+		
+		for (int i = 0; i < 5 - rating; i++)
+			starRate += "☆";
+		return starRate;
+	
+	}
 	@Override public String toString(){
-		DecimalFormat f=new DecimalFormat("#.0");
 		DecimalFormat f2=new DecimalFormat("#.00");
-		return mName+", $"+f2.format(mPrice)+", "+f.format(mAverageRating)+"/5.0, "+mAddress;
+		return "    Name: " + mName + "\n    " +  starRating(mAverageRating) + "\n    Price: $" + f2.format(mPrice) +  
+		 "\n    Address: " + mAddress 
+		+ "\n    ______________________________________________________________________";
 	}
 	
 	

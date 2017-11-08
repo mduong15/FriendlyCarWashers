@@ -18,11 +18,19 @@ public class Review {
 	public String getmReview() {
 		return mReview;
 	}
-	public void setmReview(String mReview) {
-		this.mReview = mReview;
+	public String starRating (double AverageRating) 
+	{
+		String starRate = "";
+		int rating = (int) Math.round(AverageRating);
+		for (int i = 1; i <= rating; i++)
+		starRate += "★";
+		
+		for (int i = 0; i < 5 - rating; i++)
+			starRate += "☆";
+		return starRate;
+	
 	}
 	@Override public String toString(){
-		DecimalFormat f=new DecimalFormat("#.0");
-		return (edited?"(Edited) \n":"") + f.format(mRating)+" / 5.0\n"+mReview+"\n\n";
+		return starRating(mRating)+ "\n"  +mReview+"\n\n";
 	}
 }
