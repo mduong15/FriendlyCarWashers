@@ -25,18 +25,25 @@ public class MoreInformationScene {
 	public void initialize() throws FileNotFoundException
 	{
 		 title.setText(ReviewScene.cw.getName());
-		 Scanner scan = new Scanner(new File(".src/DataMock/MoreInformation.txt"));
+		 File file = new File("./src/DataMock/MoreInformation.txt");
+		 Scanner inputFile = new Scanner(file);
 		 String carWashName;
-		 while(true) {
-			 carWashName=scan.next(";");
-			 if(carWashName.equals(ReviewScene.cw.getName()))
-				 break;
+		 String tempCarWashName = "";
+		 while(inputFile.hasNext()) 
+		 {
+			 carWashName = inputFile.nextLine();
+			 
+				 
+		//	 if(carWashName.equals(ReviewScene.cw.getName()))
+		//		 break;
+			 tempCarWashName = carWashName;
 		 }
-		 moreInformationText.setText(scan.next(";"));
-		 scan.close();
+		 moreInformationText.setText(tempCarWashName);
+		 inputFile.close();
 	}
 	
-	@FXML public Object back() throws IOException{
+	@FXML public Object back() throws IOException
+	{
 		ReviewScene.cw=null;
 		Main.swapScene("CityScene.fxml");
 		return null;
