@@ -31,6 +31,6 @@ public class Review {
 	
 	}
 	@Override public String toString(){
-		return starRating(mRating)+ "\n"  +mReview+"\n\n";
+		return (edited?"(Edited)\n" : "") + starRating(mRating)+ "\n"  +mReview+"\n\n";
 	}
 }
