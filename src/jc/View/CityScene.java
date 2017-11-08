@@ -66,7 +66,7 @@ public class CityScene {
 				return 0;
 			}
 		});
-		indicator.setText("The list has been sorted by price from the cheapest to the most expensive!");
+		indicator.setText("The list has been sorted by: Price ▲");
 		indicator.setVisible(true);
 		return null;
 	}
@@ -78,7 +78,7 @@ public class CityScene {
 				return 0;
 			}
 		});
-		indicator.setText("The list has been sorted by rating from the lowest to the highest!");
+		indicator.setText("The list has been sorted by: Rating ▼");
 		indicator.setVisible(true);
 		return null;
 	}

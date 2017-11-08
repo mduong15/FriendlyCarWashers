@@ -20,7 +20,7 @@ public class MoreInformationScene {
 	@FXML Label title;
 	@FXML Button quit;
 	@FXML Button changeCity;
-	@FXML Button writeReview;
+	//@FXML Button writeReview;
 	@FXML TextArea moreInformationText;
 	
 	public void initialize() throws FileNotFoundException
@@ -61,9 +61,9 @@ public class MoreInformationScene {
 		return null;
 	}
 	
-	@FXML public Object writeReview() throws IOException
-	{
-		Main.swapScene("WriteScene.fxml");
-		return null;
-	}
+//	@FXML public Object writeReview() throws IOException
+//	{
+//		Main.swapScene("WriteScene.fxml");
+//		return null;
+//	}
 }
