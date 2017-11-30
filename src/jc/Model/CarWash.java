@@ -20,7 +20,7 @@ public class CarWash implements Serializable {
 	public CarWash(String name,double price,double avrgRating,String address,ArrayList<Review> reviews){
 		mName=name;mPrice=price;mAverageRating=avrgRating;mAddress=address;
 		if(reviews!=null)mReviews=new ArrayList<>(reviews);
-		userReviews = new HashMap<String, Integer>();
+		userReviews = new HashMap<String, Review>();
 	}
 	public String getName() {
 		return mName;
@@ -54,7 +54,10 @@ public class CarWash implements Serializable {
 		this.mReviews =new ArrayList<>(mReviews);
 	}
 	public Map getUserReviews() {
-		return new HashMap<String, Integer>(userReviews);
+		if (userReviews == null)
+			return new HashMap<String, Review>();
+		else
+			return new HashMap<String, Review>(userReviews);
 	}
 	public void setUserReviews(Map userReviews) {
 		this.userReviews = userReviews;

@@ -3,6 +3,7 @@ package jc.View;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Map;
 import java.util.Scanner;
 
 import javafx.collections.FXCollections;
@@ -32,17 +33,24 @@ public class ReviewScene {
 	public void initialize() throws FileNotFoundException{
 		 title.setText("Seeing reviews for: "+cw.getName());
 		 rev=FXCollections.observableArrayList(cw.getReviews());
-		 File[] files=new File("./src/DataMock").listFiles();
-		 LOOP:for(File f:files){
-			 if(f.getName().equals(cw.getName())){
-				 Scanner fs=new Scanner(f);
-				 review.setText("Edit Review");
-				 String data[]=fs.nextLine().split(";");
-				 rev.add(new Review(data[0],Integer.parseInt(data[1]), data[2].equals("Edited")));
-				 fs.close();
-				 break LOOP;
-			 }
-		 }
+		 
+		 /** TODO **/
+		 Map<?, ?> userReviews = cw.getUserReviews();
+		 if (userReviews != null)
+			 userReviews.forEach((k, v)->rev.add((Review)v));
+		 
+		 
+//		 File[] files=new File("./src/DataMock").listFiles();
+//		 LOOP:for(File f:files){
+//			 if(f.getName().equals(cw.getName())){
+//				 Scanner fs=new Scanner(f);
+//				 review.setText("Edit Review");
+//				 String data[]=fs.nextLine().split(";");
+//				 rev.add(new Review(data[0],Integer.parseInt(data[1]), data[2].equals("Edited")));
+//				 fs.close();
+//				 break LOOP;
+//			 }
+//		 }
 		 reviewView.setItems(rev);
 	}
 	
