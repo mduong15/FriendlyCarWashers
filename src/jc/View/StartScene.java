@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import jc.Model.City;
 
 public class StartScene {
 	@FXML Button select;
@@ -15,7 +16,7 @@ public class StartScene {
 	
 	public void initialize(){
 		ObservableList<String> cityList=FXCollections.observableArrayList();
-		for(String c:Main.CITIES)cityList.add(c);
+		for(City c: Main.carWashes.cities)cityList.add(c.name);
 		Collections.sort(cityList);
 		cities.setItems(cityList);
 	}

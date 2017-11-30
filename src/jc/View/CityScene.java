@@ -3,10 +3,13 @@ package jc.View;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
 
 import javafx.collections.FXCollections;
@@ -32,6 +35,35 @@ public class CityScene {
 	@FXML Button information;
 	
 	private ObservableList<CarWash> washList;
+	
+	/*** Used to create serial objects ***/
+//	public static void main(String[] args) throws IOException 
+//	{
+//		city = "Westminster";
+//		List<CarWash> washes = new ArrayList<CarWash>();
+//		
+//		Scanner fs=new Scanner(new File("./src/Data/"+city));
+//		while(fs.hasNextLine()){
+//			String[] data=fs.nextLine().split(";");
+//			CarWash toAdd=new CarWash(data[0],  Double.parseDouble(data[1]),  -1.0,  data[2], null);
+//			data=fs.nextLine().split(";");
+//			ArrayList<Review> reviews=new ArrayList<>();
+//			int count=0;double sum=0.;
+//			while(!data[0].equals("#")){
+//				int rating=Integer.parseInt(data[1]);
+//				reviews.add(new Review(data[0],rating, false));
+//				count++;sum+=rating;
+//				data=fs.nextLine().split(";");
+//			}
+//			toAdd.setAverageRating(sum/count);
+//			toAdd.setReviews(reviews);
+//			washes.add(toAdd);
+//		}
+//		fs.close();
+//		
+//		ObjectOutputStream objOut = new ObjectOutputStream(new FileOutputStream(new File("Westminster.ser")));
+//		objOut.writeObject(washes);
+//	}
 	
 	public void initialize() throws FileNotFoundException{
 		washList=FXCollections.observableArrayList();

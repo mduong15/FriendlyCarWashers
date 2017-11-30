@@ -1,8 +1,13 @@
 package jc.Model;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 
-public class Review {
+public class Review implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int mRating;
 	private String mReview;
 	public boolean edited;
