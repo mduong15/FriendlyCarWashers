@@ -1,9 +1,14 @@
 package jc.Model;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class CarWash {
+public class CarWash implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String mName;
 	private double mPrice;
 	private double mAverageRating;

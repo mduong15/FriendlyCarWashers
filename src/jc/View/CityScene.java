@@ -3,10 +3,13 @@ package jc.View;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
 
 import javafx.collections.FXCollections;
@@ -16,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import jc.Model.CarWash;
+import jc.Model.City;
 import jc.Model.Review;
 
 public class CityScene {
@@ -37,24 +41,23 @@ public class CityScene {
 		washList=FXCollections.observableArrayList();
 		title.setText("You have chosen: "+city);
 		
-		Scanner fs=new Scanner(new File("./src/Data/"+city));
-		while(fs.hasNextLine()){
-			String[] data=fs.nextLine().split(";");
-			CarWash toAdd=new CarWash(data[0],  Double.parseDouble(data[1]),  -1.0,  data[2], null);
-			data=fs.nextLine().split(";");
-			ArrayList<Review> reviews=new ArrayList<>();
-			int count=0;double sum=0.;
-			while(!data[0].equals("#")){
-				int rating=Integer.parseInt(data[1]);
-				reviews.add(new Review(data[0],rating, false));
-				count++;sum+=rating;
-				data=fs.nextLine().split(";");
-			}
-			toAdd.setAverageRating(sum/count);
-			toAdd.setReviews(reviews);
-			washList.add(toAdd);
+		City currCity = null;
+		int i = 0, end = Main.carWashes.cities.size();
+		while (i < end && currCity == null)
+		{
+			if (Main.carWashes.cities.get(i).name == city)
+				currCity = Main.carWashes.cities.get(i);
+			i++;
 		}
-		fs.close();
+		
+		if (currCity == null)
+			System.out.println("Whoops something went wrong with making the city.");
+		
+		for (CarWash wash : currCity.carWashes)
+		{
+			washList.add(wash);
+		}
+		
 		washes.setItems(washList);
 	}
 	

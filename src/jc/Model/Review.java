@@ -1,8 +1,13 @@
 package jc.Model;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 
-public class Review {
+public class Review implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int mRating;
 	private String mReview;
 	public boolean edited;
@@ -23,7 +28,7 @@ public class Review {
 		String starRate = "";
 		int rating = (int) Math.round(AverageRating);
 		for (int i = 1; i <= rating; i++)
-		starRate += "★";
+			starRate += "★";
 		
 		for (int i = 0; i < 5 - rating; i++)
 			starRate += "☆";

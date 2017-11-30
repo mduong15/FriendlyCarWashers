@@ -8,13 +8,17 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import jc.Model.CarWashes;
 
 public class Main extends Application{
-	static final ArrayList<String> CITIES;
+	static CarWashes carWashes;
 	static{
-		CITIES=new ArrayList<>();
-		File[] data=new File("./src/Data").listFiles();
-		for(File f:data)CITIES.add(f.getName());
+		try {
+			carWashes = new CarWashes();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	private static Stage stage;
 	private static Class _class;
