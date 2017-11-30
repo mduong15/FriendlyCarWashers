@@ -34,6 +34,7 @@ public class CityScene {
 	@FXML Button back;
 	@FXML Button quit;
 	@FXML Button information;
+	@FXML Label createSignIn;
 	
 	private ObservableList<CarWash> washList;
 	
@@ -108,5 +109,9 @@ public class CityScene {
 		Main.swapScene("MoreInformation.fxml");
 		return null;
 	}
-	
+	@FXML public Object createSignIn() throws IOException
+	{
+		Main.swapToLoginScene();
+		return null;
+	}
 }

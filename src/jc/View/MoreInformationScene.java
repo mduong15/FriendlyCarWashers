@@ -16,7 +16,7 @@ public class MoreInformationScene {
 	@FXML Button quit;
 	@FXML Button changeCity;
 	@FXML TextArea moreInformationText;
-	
+	@FXML Label createSignIn;
 	public void initialize() throws FileNotFoundException
 	{
 		 title.setText(ReviewScene.cw.getName());
@@ -47,6 +47,12 @@ public class MoreInformationScene {
 	@FXML public Object changeCity() throws IOException
 	{
 		Main.swapScene("StartScene.fxml");
+		return null;
+	}
+	
+	@FXML public Object createSignIn() throws IOException
+	{
+		Main.swapToLoginScene();
 		return null;
 	}
 	
