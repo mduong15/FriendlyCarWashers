@@ -36,35 +36,6 @@ public class CityScene {
 	
 	private ObservableList<CarWash> washList;
 	
-	/*** Used to create serial objects ***/
-//	public static void main(String[] args) throws IOException 
-//	{
-//		city = "Westminster";
-//		List<CarWash> washes = new ArrayList<CarWash>();
-//		
-//		Scanner fs=new Scanner(new File("./src/Data/"+city));
-//		while(fs.hasNextLine()){
-//			String[] data=fs.nextLine().split(";");
-//			CarWash toAdd=new CarWash(data[0],  Double.parseDouble(data[1]),  -1.0,  data[2], null);
-//			data=fs.nextLine().split(";");
-//			ArrayList<Review> reviews=new ArrayList<>();
-//			int count=0;double sum=0.;
-//			while(!data[0].equals("#")){
-//				int rating=Integer.parseInt(data[1]);
-//				reviews.add(new Review(data[0],rating, false));
-//				count++;sum+=rating;
-//				data=fs.nextLine().split(";");
-//			}
-//			toAdd.setAverageRating(sum/count);
-//			toAdd.setReviews(reviews);
-//			washes.add(toAdd);
-//		}
-//		fs.close();
-//		
-//		ObjectOutputStream objOut = new ObjectOutputStream(new FileOutputStream(new File("Westminster.ser")));
-//		objOut.writeObject(washes);
-//	}
-	
 	public void initialize() throws FileNotFoundException{
 		washList=FXCollections.observableArrayList();
 		title.setText("You have chosen: "+city);

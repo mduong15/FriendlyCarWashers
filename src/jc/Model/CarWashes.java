@@ -30,35 +30,4 @@ public class CarWashes implements Serializable {
 			}
 		}
 	}
-	
-	/*** Used to create serial objects" ***/
-//	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException
-//	{
-//		CarWashes washes = new CarWashes();
-//		System.out.println(washes);
-//		
-//		for (City c: washes.cities)
-//		{
-//			System.out.println(c.name);
-//		}
-//		
-//		
-//		
-//		
-//		
-//		
-////		ArrayList<City> cits = new ArrayList<>();
-////		ObjectInputStream in = new ObjectInputStream(new FileInputStream(new File("CostaMesa.ser")));
-////		cits.add(new City("Costa Mesa", (ArrayList<CarWash>)(in.readObject())));
-////		
-////		
-////		in = new ObjectInputStream(new FileInputStream(new File("GardenGrove.ser")));
-////		cits.add(new City("Garden Grove", (ArrayList<CarWash>)(in.readObject())));
-////		
-////		in = new ObjectInputStream(new FileInputStream(new File("Westminster.ser")));
-////		cits.add(new City("Westminster", (ArrayList<CarWash>)(in.readObject())));
-////		
-////		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(new File ("Cities.ser")));
-////		out.writeObject(cits);
-//	}
 }
