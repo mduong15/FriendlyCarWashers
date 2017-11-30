@@ -2,6 +2,8 @@ package jc.Model;
 
 import java.io.Serializable;
 import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Review implements Serializable {
 	/**
@@ -10,7 +12,8 @@ public class Review implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int mRating;
 	private String mReview;
-	public boolean edited;
+	private boolean edited;
+	
 	public Review(String review,int rating, boolean edited){
 		mRating=rating;mReview=review;this.edited = edited;
 	}
@@ -23,6 +26,13 @@ public class Review implements Serializable {
 	public String getmReview() {
 		return mReview;
 	}
+	public boolean isEdited() {
+		return edited;
+	}
+	public void setEdited(boolean edited) {
+		this.edited = edited;
+	}
+	
 	public String starRating (double AverageRating) 
 	{
 		String starRate = "";

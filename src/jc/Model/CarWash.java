@@ -3,6 +3,8 @@ package jc.Model;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CarWash implements Serializable {
 	/**
@@ -14,9 +16,11 @@ public class CarWash implements Serializable {
 	private double mAverageRating;
 	private String mAddress;
 	private ArrayList<Review> mReviews;
+	private Map userReviews;
 	public CarWash(String name,double price,double avrgRating,String address,ArrayList<Review> reviews){
 		mName=name;mPrice=price;mAverageRating=avrgRating;mAddress=address;
 		if(reviews!=null)mReviews=new ArrayList<>(reviews);
+		userReviews = new HashMap<String, Integer>();
 	}
 	public String getName() {
 		return mName;
@@ -48,6 +52,12 @@ public class CarWash implements Serializable {
 	}
 	public void setReviews(ArrayList<Review> mReviews) {
 		this.mReviews =new ArrayList<>(mReviews);
+	}
+	public Map getUserReviews() {
+		return new HashMap<String, Integer>(userReviews);
+	}
+	public void setUserReviews(Map userReviews) {
+		this.userReviews = userReviews;
 	}
 	public String starRating (double AverageRating) 
 	{

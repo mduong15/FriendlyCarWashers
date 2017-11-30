@@ -11,6 +11,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.omg.SendingContext.RunTime;
+
 public class CarWashes implements Serializable {
 	/**
 	 * 
@@ -22,12 +24,24 @@ public class CarWashes implements Serializable {
 	{
 		try(ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(new File("Cities.ser"))))
 		{
-			try {
-				cities = (List<City>)(objIn.readObject());
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			cities = (List<City>)(objIn.readObject());
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
+		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				try(ObjectOutputStream objIn = new ObjectOutputStream(new FileOutputStream(new File("Cities.ser"))))
+				{
+						objIn.writeObject(cities);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		}));		
 	}
 }
