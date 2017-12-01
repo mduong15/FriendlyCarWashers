@@ -11,7 +11,7 @@ import javafx.scene.control.ListView;
 import jc.Model.City;
 
 public class CouponScene {
-	public class StartScene {
+	
 		
 		@FXML ListView<String> coupon;
 		@FXML Label createSignIn;
@@ -51,4 +51,4 @@ public class CouponScene {
 			return null;
 		}
 	}
-}
+

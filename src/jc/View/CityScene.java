@@ -116,7 +116,7 @@ public class CityScene {
 	}
 	@FXML public Object seeCoupon() throws IOException
 	{
-		Main.swapScene("CouponScene2.fxml");
+		Main.swapScene("CouponScene.fxml");
 		return null;
 	}
 }
