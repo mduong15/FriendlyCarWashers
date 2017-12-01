@@ -17,13 +17,15 @@ public class MoreInformationScene {
 	@FXML Button changeCity;
 	@FXML TextArea moreInformationText;
 	@FXML Label createSignIn;
+	
 	public void initialize() throws FileNotFoundException
 	{
-		 title.setText(ReviewScene.cw.getName());
+		 title.setText(ReviewScene.cw.getName()); //SET CAR WASH LOCATION NAME
 		 File file = new File("./src/DataMock/MoreInformation.txt");
 		 Scanner inputFile = new Scanner(file);
 		 String carWashName= "";
 		 String tempCarWashName = "";
+		 //DISPLAY CONTACT AND OPERATIONAL HOUR OF CAR WASH LOCATION
 		 while(inputFile.hasNext()) 
 		 {
 			 carWashName += inputFile.nextLine()+"\n";
@@ -32,24 +34,26 @@ public class MoreInformationScene {
 		 moreInformationText.setText(tempCarWashName);
 		 inputFile.close();
 	}
-	
+	//RETURN TO CHOOSE CAR WASH LOCATION
 	@FXML public Object back() throws IOException
 	{
 		ReviewScene.cw=null;
 		Main.swapScene("CityScene.fxml");
 		return null;
 	}
+	//TERMINATE THE PROGRAM
 	@FXML public Object quit()
 	{
 		System.exit(0);
 		return null;
 	}
+	//RETURN TO THE BEGINNING TO SELECT CITY
 	@FXML public Object changeCity() throws IOException
 	{
 		Main.swapScene("StartScene.fxml");
 		return null;
 	}
-	
+	//DIRECT TO THE CREATE ACCOUNT/ SIGN IN SCENE
 	@FXML public Object createSignIn() throws IOException
 	{
 		Main.swapToLoginScene();
