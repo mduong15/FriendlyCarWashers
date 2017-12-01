@@ -72,6 +72,11 @@
                                           <Font size="16.0" />
                                        </font>
                                     </Button>
+                                    <Button fx:id="seeCoupon" mnemonicParsing="false" onAction="#seeCoupon" prefHeight="41.0" prefWidth="160.0" text="See Coupons">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
                                     <Button fx:id="quit" mnemonicParsing="false" onAction="#quit" prefHeight="41.0" prefWidth="160.0" text="Quit">
                                        <font>
                                           <Font size="18.0" />
