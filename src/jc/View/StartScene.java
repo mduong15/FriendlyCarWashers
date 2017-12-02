@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import jc.Model.Account;
 import jc.Model.City;
 
 public class StartScene {
@@ -17,6 +18,8 @@ public class StartScene {
 	@FXML Label createSignIn;
 	
 	public void initialize(){
+		setSignInText();
+		
 		ObservableList<String> cityList=FXCollections.observableArrayList();
 		for(City c: Main.carWashes.cities)cityList.add(c.name);
 		Collections.sort(cityList);
@@ -33,6 +36,17 @@ public class StartScene {
 	@FXML public Object createSignIn() throws IOException
 	{
 		Main.swapToLoginScene();
+		SignInScene.saveScene = "StartScene.fxml";
+		setSignInText();
 		return null;
 	}
+	
+	private void setSignInText()
+	{
+		if (Account.signedIn)
+			createSignIn.setText("Log out");
+		else
+			createSignIn.setText("Create Account / Sign In");
+	}
+	
 }

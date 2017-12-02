@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import jc.Model.Account;
 
 public class CouponScene {
 		@FXML ListView<String> coupon;
@@ -16,12 +17,15 @@ public class CouponScene {
 		//DISPLAY CITY NAME WHEN CHOSEN
 		public void initialize()
 		{
+			setSignInText();
 			title.setText("Coupon for "+CityScene.city);
 		}
 		//DIRECT TO THE CREATE ACCOUNT/SIGN IN SCENE		
 		@FXML public Object createSignIn() throws IOException
 		{
 			Main.swapToLoginScene();
+			SignInScene.saveScene = "CouponScene.fxml";
+			setSignInText();
 			return null;
 		}
 		//TERMINATE THE PROGRAM
@@ -43,6 +47,14 @@ public class CouponScene {
 			//CityScene.city = null;
 			Main.swapScene("CityScene.fxml");
 			return null;
+		}
+		
+		private void setSignInText()
+		{
+			if (Account.signedIn)
+				createSignIn.setText("Log out");
+			else
+				createSignIn.setText("Create Account / Sign In");
 		}
 	}
 

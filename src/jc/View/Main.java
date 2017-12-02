@@ -7,7 +7,10 @@ import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import jc.Model.Account;
 import jc.Model.CarWashes;
 
 public class Main extends Application{
@@ -36,6 +39,21 @@ public class Main extends Application{
 	
 	public static void swapToLoginScene() throws IOException
 	{
-		swapScene("SignInScene.fxml");
+		if (!Account.signedIn)
+		{
+			swapScene("SignInScene.fxml");
+		}
+		else
+		{
+			Account.signedIn = false;
+			
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Logged out!");
+			alert.setHeaderText("You are logged out!");
+			alert.setContentText("You are now logged out.\n" +
+					"To gain access to account-only features, such as writing reviews " +
+					"and saving all of your favorite car washes, please sign in again.");
+			alert.show();
+		}
 	}
 }

@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import jc.Model.Account;
 
 public class MoreInformationScene {
 	
@@ -20,6 +21,8 @@ public class MoreInformationScene {
 	
 	public void initialize() throws FileNotFoundException
 	{
+		setSignInText();
+		
 		 title.setText(ReviewScene.cw.getName()); //SET CAR WASH LOCATION NAME
 		 File file = new File("./src/DataMock/MoreInformation.txt");
 		 Scanner inputFile = new Scanner(file);
@@ -57,7 +60,17 @@ public class MoreInformationScene {
 	@FXML public Object createSignIn() throws IOException
 	{
 		Main.swapToLoginScene();
+		SignInScene.saveScene = "MoreInformation.fxml";
+		setSignInText();
 		return null;
+	}
+	
+	private void setSignInText()
+	{
+		if (Account.signedIn)
+			createSignIn.setText("Log out");
+		else
+			createSignIn.setText("Create Account / Sign In");
 	}
 	
 //	@FXML public Object writeReview() throws IOException

@@ -11,6 +11,7 @@ import java.util.Scanner;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -49,6 +50,8 @@ public class SignInScene {
 	@FXML
 	Label userTakenWarn;
 
+	public static String saveScene; 
+	
 	public void initialize() throws FileNotFoundException {
 		ObservableList<String> cityList=FXCollections.observableArrayList();
 		for(City c: Main.carWashes.cities)cityList.add(c.name);
@@ -90,8 +93,9 @@ public class SignInScene {
 				"and saving all of your favorite car washes!");
 		alert.show();
 		
-		/** TODO: Make it go back to the previous scene instead **/
-		Main.swapScene("StartScene.fxml");
+		//Main.swapScene("StartScene.fxml");
+		/** TODO: CHECK IF THE IMPLEMENTATION OF THIS IN MAIN ACTUALLY WORKS **/
+		Main.swapScene(saveScene);
 		return null;
 	}
 	
@@ -134,15 +138,17 @@ public class SignInScene {
 		alert.show();
 		
 		
-		/** TODO: Make it go back to the previous scene instead **/
-		Main.swapScene("StartScene.fxml");
+		//Main.swapScene("StartScene.fxml");
+		/** TODO: CHECK IF THE IMPLEMENTATION OF THIS IN MAIN ACTUALLY WORKS **/
+		Main.swapScene(saveScene);
 		return null;
 	}
 
 	@FXML
 	public Object cancel() throws IOException {
-		/** TODO: Probalby save the last scene and return to it or something **/
-		Main.swapScene("StartScene.fxml");
+		//Main.swapScene("StartScene.fxml");
+		/** TODO: CHECK IF THE IMPLEMENTATION OF THIS IN MAIN ACTUALLY WORKS **/
+		Main.swapScene(saveScene);
 		return null;
 	}
 }

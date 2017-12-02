@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import jc.Model.Account;
 
 public class WriteScene {
 	@FXML
@@ -31,6 +32,8 @@ public class WriteScene {
 	private boolean editing;
 
 	public void initialize() throws FileNotFoundException {
+		setSignInText();
+		
 		editing = false;
 
 		title.setText("Reviewing: " + ReviewScene.cw.getName());
@@ -89,6 +92,16 @@ public class WriteScene {
 	@FXML public Object createSignIn() throws IOException
 	{
 		Main.swapToLoginScene();
+		SignInScene.saveScene = "WriteScene.fxml";
+		setSignInText();
 		return null;
+	}
+	
+	public void setSignInText()
+	{
+		if (Account.signedIn)
+			createSignIn.setText("Log out");
+		else
+			createSignIn.setText("Create Account / Sign In");
 	}
 }
