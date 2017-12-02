@@ -26,7 +26,8 @@ public class WriteScene {
 	Label title;
 	@FXML
 	Label warning;
-
+	@FXML Label createSignIn;
+	
 	private boolean editing;
 
 	public void initialize() throws FileNotFoundException {
@@ -83,6 +84,11 @@ public class WriteScene {
 	@FXML
 	public Object back() throws IOException {
 		Main.swapScene("ReviewScene.fxml");
+		return null;
+	}
+	@FXML public Object createSignIn() throws IOException
+	{
+		Main.swapToLoginScene();
 		return null;
 	}
 }

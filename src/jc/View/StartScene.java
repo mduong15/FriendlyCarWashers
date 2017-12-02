@@ -7,12 +7,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import jc.Model.City;
 
 public class StartScene {
 	@FXML Button select;
 	@FXML ListView<String> cities;
+	@FXML Label createSignIn;
 	
 	public void initialize(){
 		ObservableList<String> cityList=FXCollections.observableArrayList();
@@ -25,6 +27,12 @@ public class StartScene {
 		CityScene.city=cities.getSelectionModel().getSelectedItem();
 		if(CityScene.city != null && !CityScene.city.equals(""))
 			Main.swapScene("CityScene.fxml");
+		return null;
+	}
+	
+	@FXML public Object createSignIn() throws IOException
+	{
+		Main.swapToLoginScene();
 		return null;
 	}
 }

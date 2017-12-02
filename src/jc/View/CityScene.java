@@ -34,7 +34,8 @@ public class CityScene {
 	@FXML Button back;
 	@FXML Button quit;
 	@FXML Button information;
-	
+	@FXML Label createSignIn;
+	@FXML Button seeCoupon;
 	private ObservableList<CarWash> washList;
 	
 	public void initialize() throws FileNotFoundException{
@@ -108,5 +109,14 @@ public class CityScene {
 		Main.swapScene("MoreInformation.fxml");
 		return null;
 	}
-	
+	@FXML public Object createSignIn() throws IOException
+	{
+		Main.swapToLoginScene();
+		return null;
+	}
+	@FXML public Object seeCoupon() throws IOException
+	{
+		Main.swapScene("CouponScene.fxml");
+		return null;
+	}
 }

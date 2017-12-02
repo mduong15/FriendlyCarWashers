@@ -26,7 +26,7 @@ public class ReviewScene {
 	@FXML Label title;
 	@FXML Button quit2;
 	@FXML Button changeCity;
-	
+	@FXML Label createSignIn;
 	
 	private ObservableList<Review> rev;
 	
@@ -74,5 +74,9 @@ public class ReviewScene {
 		//dummy comment
 		return null;
 	}
-	
+	@FXML public Object createSignIn() throws IOException
+	{
+		Main.swapToLoginScene();
+		return null;
+	}
 }

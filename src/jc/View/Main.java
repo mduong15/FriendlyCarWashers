@@ -33,4 +33,9 @@ public class Main extends Application{
 		stage.setScene(new Scene(FXMLLoader.load(_class.getResource(fxmlSrc))));
 		stage.show();
 	}
+	
+	public static void swapToLoginScene() throws IOException
+	{
+		swapScene("SignInScene.fxml");
+	}
 }
