@@ -93,7 +93,7 @@
                   </GridPane>
                </center>
             </BorderPane>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
+            <BorderPane pickOnBounds="false" prefHeight="200.0" prefWidth="200.0">
                <top>
                   <Label fx:id="createSignIn" onMouseClicked="#createSignIn" text="Create Account / Sign In" textFill="#1111dd" underline="true" BorderPane.alignment="CENTER_RIGHT">
                      <BorderPane.margin>
