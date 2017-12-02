@@ -39,7 +39,6 @@ public class ReviewScene {
 		 if (userReviews != null)
 			 userReviews.forEach((k, v)->rev.add((Review)v));
 		 
-		 
 //		 File[] files=new File("./src/DataMock").listFiles();
 //		 LOOP:for(File f:files){
 //			 if(f.getName().equals(cw.getName())){

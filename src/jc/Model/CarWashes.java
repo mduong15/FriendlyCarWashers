@@ -26,6 +26,7 @@ public class CarWashes implements Serializable {
 		try(ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(new File("Cities.ser"))))
 		{
 			cities = (List<City>)(objIn.readObject());
+			accounts = (List<Account>)(objIn.readObject());
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -38,6 +39,7 @@ public class CarWashes implements Serializable {
 				try(ObjectOutputStream objIn = new ObjectOutputStream(new FileOutputStream(new File("Cities.ser"))))
 				{
 						objIn.writeObject(cities);
+						objIn.writeObject(accounts);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -45,4 +47,5 @@ public class CarWashes implements Serializable {
 			}
 		}));		
 	}
+	
 }

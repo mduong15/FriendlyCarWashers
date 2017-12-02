@@ -11,6 +11,8 @@ import java.util.Scanner;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -44,6 +46,8 @@ public class SignInScene {
 	Label createWarning;
 	@FXML
 	Label signInWarning;
+	@FXML
+	Label userTakenWarn;
 
 	public void initialize() throws FileNotFoundException {
 		ObservableList<String> cityList=FXCollections.observableArrayList();
@@ -67,14 +71,24 @@ public class SignInScene {
 		while (i < len && !Account.signedIn)
 		{
 			Account a = Main.carWashes.accounts.get(i);
-			if (checkUser == a.getUsername() && 
-					checkPass == a.getPassword())
+			if (checkUser.equals(a.getUsername()) && 
+					checkPass.equals(a.getPassword()))
 				Account.signedIn = true;
 
 			i++;
 		}
 		if (!Account.signedIn)
+		{
 			signInWarning.setVisible(true);
+			return null;
+		}
+		
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Logged in!");
+		alert.setHeaderText("Welcome back " + checkUser + "!");
+		alert.setContentText("Now you have access to account-only features, such as writing reviews " +
+				"and saving all of your favorite car washes!");
+		alert.show();
 		
 		/** TODO: Make it go back to the previous scene instead **/
 		Main.swapScene("StartScene.fxml");
@@ -83,6 +97,9 @@ public class SignInScene {
 	
 	@FXML
 	public Object createAccount() throws IOException {
+		createWarning.setVisible(false);
+		userTakenWarn.setVisible(false);
+
 		String fName = createFirst.getText();
 		String lName = createLast.getText();
 		String city = cities.getValue();
@@ -98,8 +115,25 @@ public class SignInScene {
 			return null;
 		}
 		
+		for (Account a : Main.carWashes.accounts)
+		{
+			if (a.getUsername().equals(fName))
+			{
+				userTakenWarn.setVisible(true);
+				return null;
+			}
+		}
+		
 		Account newAcc = new Account(fName, lName, city, user, pass);
 		Main.carWashes.accounts.add(newAcc);
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Account created!");
+		alert.setHeaderText("Account created!");
+		alert.setContentText("Now you have access to account-only features, such as writing reviews " +
+				"and saving all of your favorite car washes!");
+		alert.show();
+		
+		
 		/** TODO: Make it go back to the previous scene instead **/
 		Main.swapScene("StartScene.fxml");
 		return null;

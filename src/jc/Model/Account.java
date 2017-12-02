@@ -1,6 +1,12 @@
 package jc.Model;
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String firstName, lastName, homeCity, username, password;
 	public static boolean signedIn = false;
 	
