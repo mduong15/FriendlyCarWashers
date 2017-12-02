@@ -55,9 +55,10 @@ public class CarWash implements Serializable {
 	}
 	public Map getUserReviews() {
 		if (userReviews == null)
-			return new HashMap<String, Review>();
-		else
-			return new HashMap<String, Review>(userReviews);
+		{
+			userReviews = new HashMap<String, Review>();
+		}
+		return new HashMap<String, Review>(userReviews);
 	}
 	public void setUserReviews(Map userReviews) {
 		this.userReviews = userReviews;

@@ -18,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import jc.Model.Account;
 import jc.Model.CarWash;
 import jc.Model.City;
 import jc.Model.Review;
@@ -39,6 +40,8 @@ public class CityScene {
 	private ObservableList<CarWash> washList;
 	
 	public void initialize() throws FileNotFoundException{
+		setSignInText();
+		
 		washList=FXCollections.observableArrayList();
 		title.setText("You have chosen: "+city);
 		
@@ -112,11 +115,21 @@ public class CityScene {
 	@FXML public Object createSignIn() throws IOException
 	{
 		Main.swapToLoginScene();
+		SignInScene.saveScene = "CityScene.fxml";
+		setSignInText();
 		return null;
 	}
 	@FXML public Object seeCoupon() throws IOException
 	{
 		Main.swapScene("CouponScene.fxml");
 		return null;
+	}
+	
+	private void setSignInText()
+	{
+		if (Account.signedIn)
+			createSignIn.setText("Log out");
+		else
+			createSignIn.setText("Create Account / Sign In");
 	}
 }

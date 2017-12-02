@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import jc.Model.Account;
 import jc.Model.CarWash;
 import jc.Model.Review;
 
@@ -31,6 +32,8 @@ public class ReviewScene {
 	private ObservableList<Review> rev;
 	
 	public void initialize() throws FileNotFoundException{
+		setSignInText();
+		
 		 title.setText("Seeing reviews for: "+cw.getName());
 		 rev=FXCollections.observableArrayList(cw.getReviews());
 		 
@@ -38,7 +41,6 @@ public class ReviewScene {
 		 Map<?, ?> userReviews = cw.getUserReviews();
 		 if (userReviews != null)
 			 userReviews.forEach((k, v)->rev.add((Review)v));
-		 
 		 
 //		 File[] files=new File("./src/DataMock").listFiles();
 //		 LOOP:for(File f:files){
@@ -77,6 +79,16 @@ public class ReviewScene {
 	@FXML public Object createSignIn() throws IOException
 	{
 		Main.swapToLoginScene();
+		SignInScene.saveScene = "ReviewScene.fxml";
+		setSignInText();
 		return null;
+	}
+	
+	private void setSignInText()
+	{
+		if (Account.signedIn)
+			createSignIn.setText("Log out");
+		else
+			createSignIn.setText("Create Account / Sign In");
 	}
 }
