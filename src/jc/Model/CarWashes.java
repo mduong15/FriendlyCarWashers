@@ -19,6 +19,7 @@ public class CarWashes implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	public List<City> cities;
+	public List<Account> accounts;
 	
 	public CarWashes() throws FileNotFoundException, IOException
 	{
