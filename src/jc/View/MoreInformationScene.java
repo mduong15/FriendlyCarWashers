@@ -11,8 +11,6 @@ import javafx.scene.control.TextArea;
 import jc.Model.Account;
 
 public class MoreInformationScene {
-<<<<<<< HEAD
-
 	@FXML
 	Button back;
 	@FXML
@@ -25,29 +23,6 @@ public class MoreInformationScene {
 	TextArea moreInformationText;
 	@FXML
 	Label createSignIn;
-
-	public void initialize() throws FileNotFoundException {
-		title.setText(ReviewScene.cw.getName()); // SET CAR WASH LOCATION NAME
-		File file = new File("./src/DataMock/MoreInformation.txt");
-		Scanner inputFile = new Scanner(file);
-		String carWashName = "";
-		String tempCarWashName = "";
-		// DISPLAY CONTACT AND OPERATIONAL HOUR OF CAR WASH LOCATION
-		while (inputFile.hasNext()) {
-			carWashName += inputFile.nextLine() + "\n";
-			tempCarWashName = carWashName;
-		}
-		moreInformationText.setText(tempCarWashName);
-		inputFile.close();
-=======
-	
-	@FXML Button back;
-	@FXML Label title;
-	@FXML Button quit;
-	@FXML Button changeCity;
-	@FXML TextArea moreInformationText;
-	@FXML Label createSignIn;
-	
 	public void initialize() throws FileNotFoundException
 	{
 		setSignInText();
@@ -65,7 +40,7 @@ public class MoreInformationScene {
 		 }
 		 moreInformationText.setText(tempCarWashName);
 		 inputFile.close();
->>>>>>> cf5d1c60d21d6438e7b6adde77263db436077e74
+
 	}
 
 	// RETURN TO CHOOSE CAR WASH LOCATION
@@ -98,14 +73,6 @@ public class MoreInformationScene {
 		setSignInText();
 		return null;
 	}
-<<<<<<< HEAD
-
-	// @FXML public Object writeReview() throws IOException
-	// {
-	// Main.swapScene("WriteScene.fxml");
-	// return null;
-	// }
-=======
 	
 	private void setSignInText()
 	{
@@ -120,5 +87,5 @@ public class MoreInformationScene {
 //		Main.swapScene("WriteScene.fxml");
 //		return null;
 //	}
->>>>>>> cf5d1c60d21d6438e7b6adde77263db436077e74
+
 }
