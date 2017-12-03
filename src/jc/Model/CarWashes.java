@@ -20,32 +20,29 @@ public class CarWashes implements Serializable {
 	private static final long serialVersionUID = 1L;
 	public List<City> cities;
 	public List<Account> accounts;
-	
-	public CarWashes() throws FileNotFoundException, IOException
-	{
-		try(ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(new File("Cities.ser"))))
-		{
-			cities = (List<City>)(objIn.readObject());
-			accounts = (List<Account>)(objIn.readObject());
+
+	public CarWashes() throws FileNotFoundException, IOException {
+		try (ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(new File("Cities.ser")))) {
+			cities = (List<City>) (objIn.readObject());
+			accounts = (List<Account>) (objIn.readObject());
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				try(ObjectOutputStream objIn = new ObjectOutputStream(new FileOutputStream(new File("Cities.ser"))))
-				{
-						objIn.writeObject(cities);
-						objIn.writeObject(accounts);
+				try (ObjectOutputStream objIn = new ObjectOutputStream(new FileOutputStream(new File("Cities.ser")))) {
+					objIn.writeObject(cities);
+					objIn.writeObject(accounts);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
-		}));		
+		}));
 	}
-	
+
 }

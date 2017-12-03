@@ -23,6 +23,7 @@ public class MoreInformationScene {
 	TextArea moreInformationText;
 	@FXML
 	Label createSignIn;
+	
 	public void initialize() throws FileNotFoundException
 	{
 		setSignInText();
