@@ -16,6 +16,27 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import jc.Model.Account;
+import jc.Model.CarWash;
+import jc.Model.City;
+import jc.Model.Review;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import jc.Model.Account;
@@ -25,12 +46,11 @@ import jc.Model.Review;
 
 public class CityScene {
 	static String city;
-	
+	ObservableList<String> sortMenu=FXCollections.observableArrayList("Price", "Rating");
 	@FXML Label title;
 	@FXML Label indicator;
 	@FXML ListView<CarWash> washes;
-	@FXML Button priceSort;
-	@FXML Button rateSort;
+	@FXML ComboBox<String> sortList;
 	@FXML Button select;
 	@FXML Button back;
 	@FXML Button quit;
@@ -40,6 +60,7 @@ public class CityScene {
 	private ObservableList<CarWash> washList;
 	
 	public void initialize() throws FileNotFoundException{
+		sortList.setItems(sortMenu);
 		setSignInText();
 		
 		washList=FXCollections.observableArrayList();
@@ -64,31 +85,30 @@ public class CityScene {
 		
 		washes.setItems(washList);
 	}
-	
-	@FXML public Object priceSort(){
-		Collections.sort(washList,new Comparator<CarWash>(){
-			public int compare(CarWash c1,CarWash c2){
-				if(c1.getPrice()>c2.getPrice())return 1;
-				else if(c1.getPrice()<c2.getPrice())return -1;
-				return 0;
-			}
-		});
-		indicator.setText("The list has been sorted by: Price ▲");
-		indicator.setVisible(true);
-		return null;
-	}
-	@FXML public Object rateSort(){
-		Collections.sort(washList,new Comparator<CarWash>(){
-			public int compare(CarWash c1,CarWash c2){
-				if(c1.getAverageRating()>c2.getAverageRating())return -1;
-				else if(c1.getAverageRating()<c2.getAverageRating())return 1;
-				return 0;
-			}
-		});
-		indicator.setText("The list has been sorted by: Rating ▼");
-		indicator.setVisible(true);
-		return null;
-	}
+	@FXML public Object sortList(){
+	    String selectedAction = sortList.getValue().toString();
+	    if (selectedAction.equalsIgnoreCase("Price"))
+	    {
+	    	Collections.sort(washList,new Comparator<CarWash>(){
+				public int compare(CarWash c1,CarWash c2){
+					if(c1.getPrice()>c2.getPrice())return 1;
+					else if(c1.getPrice()<c2.getPrice())return -1;
+					return 0;
+				}
+			});
+	    }
+	    else
+	    {
+	    	Collections.sort(washList,new Comparator<CarWash>(){
+				public int compare(CarWash c1,CarWash c2){
+					if(c1.getAverageRating()>c2.getAverageRating())return -1;
+					else if(c1.getAverageRating()<c2.getAverageRating())return 1;
+					return 0;
+				}
+			});
+	    }
+	return null;
+}
 	@FXML public Object select() throws IOException{
 		ReviewScene.cw=washes.getSelectionModel().getSelectedItem();
 		if(ReviewScene.cw==null)return null;
