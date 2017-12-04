@@ -131,6 +131,10 @@ public class SignInScene {
 		
 		Account newAcc = new Account(fName, lName, city, user, pass);
 		Main.carWashes.accounts.add(newAcc);
+		
+		Account.signedIn = true;
+		Account.signedInUser = user;
+		
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Account created!");
 		alert.setHeaderText("Account created!");
@@ -147,5 +151,16 @@ public class SignInScene {
 	public Object cancel() throws IOException {
 		Main.swapScene(saveScene);
 		return null;
+	}
+	
+	public static void displaySigninWarning()
+	{
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Account needed!");
+		alert.setHeaderText("Please sign in!");
+		alert.setContentText("In order to use this feature, you must be signed in." +
+				"\nClick on the button in the top right corner to create an account or sign in.");
+		alert.show();
+		
 	}
 }

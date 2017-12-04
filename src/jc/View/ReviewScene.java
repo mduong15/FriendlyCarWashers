@@ -20,6 +20,7 @@ import jc.Model.Review;
 
 public class ReviewScene {
 	static CarWash cw;
+	static Map<String, Review> userReviews;
 	
 	@FXML Button review;
 	@FXML Button back;
@@ -37,8 +38,7 @@ public class ReviewScene {
 		 title.setText("Seeing reviews for: "+cw.getName());
 		 rev=FXCollections.observableArrayList(cw.getReviews());
 		 
-		 /** TODO **/
-		 Map<?, ?> userReviews = cw.getUserReviews();
+		 userReviews = cw.getUserReviews();
 		 if (userReviews != null)
 			 userReviews.forEach((k, v)->rev.add((Review)v));
 		 
@@ -68,6 +68,7 @@ public class ReviewScene {
 		else
 		{
 			/*** DISPLAY POP UP TO SIGN IN***/
+			SignInScene.displaySigninWarning();
 		}
 		return null;
 	}
