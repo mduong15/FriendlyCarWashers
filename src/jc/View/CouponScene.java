@@ -23,7 +23,6 @@ public class CouponScene {
 	Label title;
 
 	// DISPLAY CITY NAME WHEN CHOSEN
-	@FXML
 	public void initialize() {
 		setSignInText();
 		title.setText("Coupon for " + CityScene.city);
