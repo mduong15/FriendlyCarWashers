@@ -46,6 +46,7 @@ public class Main extends Application{
 		else
 		{
 			Account.signedIn = false;
+			Account.signedInUser = "";
 			
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Logged out!");

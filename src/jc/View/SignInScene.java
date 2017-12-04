@@ -76,7 +76,10 @@ public class SignInScene {
 			Account a = Main.carWashes.accounts.get(i);
 			if (checkUser.equals(a.getUsername()) && 
 					checkPass.equals(a.getPassword()))
+			{				
 				Account.signedIn = true;
+				Account.signedInUser = checkUser;
+			}
 
 			i++;
 		}
@@ -93,8 +96,6 @@ public class SignInScene {
 				"and saving all of your favorite car washes!");
 		alert.show();
 		
-		//Main.swapScene("StartScene.fxml");
-		/** TODO: CHECK IF THE IMPLEMENTATION OF THIS IN MAIN ACTUALLY WORKS **/
 		Main.swapScene(saveScene);
 		return null;
 	}
@@ -138,16 +139,12 @@ public class SignInScene {
 		alert.show();
 		
 		
-		//Main.swapScene("StartScene.fxml");
-		/** TODO: CHECK IF THE IMPLEMENTATION OF THIS IN MAIN ACTUALLY WORKS **/
 		Main.swapScene(saveScene);
 		return null;
 	}
 
 	@FXML
 	public Object cancel() throws IOException {
-		//Main.swapScene("StartScene.fxml");
-		/** TODO: CHECK IF THE IMPLEMENTATION OF THIS IN MAIN ACTUALLY WORKS **/
 		Main.swapScene(saveScene);
 		return null;
 	}

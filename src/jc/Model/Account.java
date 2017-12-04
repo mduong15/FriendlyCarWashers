@@ -9,6 +9,7 @@ public class Account implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String firstName, lastName, homeCity, username, password;
 	public static boolean signedIn = false;
+	public static String signedInUser = "";
 	
 	public Account(String firstName, String lastName, String homeCity, String username, String password) {
 		this.firstName = firstName;

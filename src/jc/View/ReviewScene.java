@@ -42,6 +42,12 @@ public class ReviewScene {
 		 if (userReviews != null)
 			 userReviews.forEach((k, v)->rev.add((Review)v));
 		 
+		 if (Account.signedIn)
+		 {
+			 if (userReviews.containsKey(Account.signedInUser))
+				 review.setText("Edit Review");
+		 }
+		 
 //		 File[] files=new File("./src/DataMock").listFiles();
 //		 LOOP:for(File f:files){
 //			 if(f.getName().equals(cw.getName())){
@@ -57,7 +63,12 @@ public class ReviewScene {
 	}
 	
 	@FXML public Object review() throws IOException{
-		Main.swapScene("WriteScene.fxml");
+		if (Account.signedIn)
+			Main.swapScene("WriteScene.fxml");
+		else
+		{
+			/*** DISPLAY POP UP TO SIGN IN***/
+		}
 		return null;
 	}
 	@FXML public Object back() throws IOException{
