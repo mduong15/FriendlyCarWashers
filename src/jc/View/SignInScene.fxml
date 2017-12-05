@@ -212,6 +212,5 @@
             </BorderPane>
          </children>
       </StackPane>
-      <PasswordField layoutX="680.0" layoutY="451.0" />
    </children>
 </AnchorPane>

@@ -68,10 +68,10 @@ public class CarWash implements Serializable {
 		String starRate = "";
 		int rating = (int) Math.round(AverageRating);
 		for (int i = 1; i <= rating; i++)
-		starRate += "★";
+         starRate += "★";
 		
 		for (int i = 0; i < 5 - rating; i++)
-			starRate += "☆";
+			starRate += "☆ ";
 		return starRate;
 	
 	}
