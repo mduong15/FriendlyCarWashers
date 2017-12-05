@@ -35,8 +35,8 @@ public class StartScene {
 	
 	@FXML public Object createSignIn() throws IOException
 	{
-		Main.swapToLoginScene();
 		SignInScene.saveScene = "StartScene.fxml";
+		Main.swapToLoginScene();
 		setSignInText();
 		return null;
 	}

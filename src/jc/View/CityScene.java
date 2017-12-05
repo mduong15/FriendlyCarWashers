@@ -78,7 +78,7 @@ public class CityScene {
 			seeFavorites.setTextFill(Color.BLACK);
 			addToFavs.setTextFill(Color.BLACK);
 			seeAll.setTextFill(Color.BLACK);
-			removeFavs.setTextFill(Color.BLACK);
+			//removeFavs.setTextFill(Color.BLACK);
 			
 			Account currAccount = null;
 			int i = 0, end = Main.carWashes.accounts.size();
@@ -126,6 +126,8 @@ public class CityScene {
 				washList.add(wash);
 			}
 			washes.setItems(washList);
+			
+			removeFavs.setTextFill(Color.BLACK);
 		}
 		else
 		{
@@ -253,8 +255,8 @@ public class CityScene {
 	}
 	@FXML public Object createSignIn() throws IOException
 	{
-		Main.swapToLoginScene();
 		SignInScene.saveScene = "CityScene.fxml";
+		Main.swapToLoginScene();
 		setSignInText();
 		return null;
 	}

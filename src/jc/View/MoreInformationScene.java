@@ -69,8 +69,8 @@ public class MoreInformationScene {
 	// DIRECT TO THE CREATE ACCOUNT/ SIGN IN SCENE
 	@FXML
 	public Object createSignIn() throws IOException {
-		Main.swapToLoginScene();
 		SignInScene.saveScene = "MoreInformation.fxml";
+		Main.swapToLoginScene();
 		setSignInText();
 		return null;
 	}

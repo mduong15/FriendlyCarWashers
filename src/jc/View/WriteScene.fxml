@@ -93,15 +93,6 @@
                   </GridPane>
                </center>
             </BorderPane>
-            <BorderPane pickOnBounds="false" prefHeight="200.0" prefWidth="200.0">
-               <top>
-                  <Label fx:id="createSignIn" onMouseClicked="#createSignIn" text="Create Account / Sign In" textFill="#1111dd" underline="true" BorderPane.alignment="CENTER_RIGHT">
-                     <BorderPane.margin>
-                        <Insets right="15.0" />
-                     </BorderPane.margin>
-                  </Label>
-               </top>
-            </BorderPane>
          </children>
       </StackPane>
    </children>

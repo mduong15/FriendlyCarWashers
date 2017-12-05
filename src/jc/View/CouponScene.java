@@ -31,8 +31,8 @@ public class CouponScene {
 	// DIRECT TO THE CREATE ACCOUNT/SIGN IN SCENE
 	@FXML
 	public Object createSignIn() throws IOException {
-		Main.swapToLoginScene();
 		SignInScene.saveScene = "CouponScene.fxml";
+		Main.swapToLoginScene();
 		setSignInText();
 		return null;
 	}

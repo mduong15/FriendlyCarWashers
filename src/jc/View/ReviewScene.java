@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import jc.Model.Account;
 import jc.Model.CarWash;
 import jc.Model.Review;
@@ -44,6 +45,7 @@ public class ReviewScene {
 		 
 		 if (Account.signedIn)
 		 {
+			 review.setTextFill(Color.BLACK);
 			 if (userReviews.containsKey(Account.signedInUser))
 				 review.setText("Edit Review");
 		 }
@@ -90,8 +92,8 @@ public class ReviewScene {
 	}
 	@FXML public Object createSignIn() throws IOException
 	{
-		Main.swapToLoginScene();
 		SignInScene.saveScene = "ReviewScene.fxml";
+		Main.swapToLoginScene();
 		setSignInText();
 		return null;
 	}
