@@ -61,6 +61,7 @@ public class CityScene {
 	@FXML Button seeCoupon;
 	@FXML Button seeFavorites;
 	@FXML Button addToFavs;
+	@FXML Button removeFavs;
 	@FXML Button seeAll;
 	private ObservableList<CarWash> washList;
 	private List<CarWash> favorites;
@@ -77,6 +78,7 @@ public class CityScene {
 			seeFavorites.setTextFill(Color.BLACK);
 			addToFavs.setTextFill(Color.BLACK);
 			seeAll.setTextFill(Color.BLACK);
+			removeFavs.setTextFill(Color.BLACK);
 			
 			Account currAccount = null;
 			int i = 0, end = Main.carWashes.accounts.size();
@@ -138,7 +140,7 @@ public class CityScene {
 		if (Account.signedIn)
 		{
 			CarWash temp = washes.getSelectionModel().getSelectedItem();
-			if(temp != null)
+			if(temp != null && !favorites.contains(temp))
 			{
 				favorites.add(temp);
 			}
@@ -160,6 +162,39 @@ public class CityScene {
 			/*** DISPLAY POP UP TO SIGN IN***/
 			SignInScene.displaySigninWarning();
 		}
+		return null;
+	}
+	
+	@FXML public Object removeFavs() throws IOException
+	{
+		if (Account.signedIn)
+		{
+			CarWash temp = washes.getSelectionModel().getSelectedItem();
+			if(temp != null)
+			{
+				favorites.remove(temp);
+			}
+			
+			boolean found = false;
+			int i = 0, end = Main.carWashes.accounts.size();
+			while (i < end && !found)
+			{
+				if (Main.carWashes.accounts.get(i).getUsername().equals(Account.signedInUser))
+				{
+					Main.carWashes.accounts.get(i).setFavorites(favorites);
+					found = true;
+				}
+				i++;
+			}
+			seeFavorites();
+		}
+		else
+		{
+			/*** DISPLAY POP UP TO SIGN IN***/
+			SignInScene.displaySigninWarning();
+		}
+		
+		
 		return null;
 	}
 	
