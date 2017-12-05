@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -16,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jc.View.SignInScene">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jc.View.SignInScene">
    <children>
       <StackPane prefHeight="450.0" prefWidth="800.0">
          <children>
@@ -87,8 +92,8 @@
                                           <TextField fx:id="createFirst" GridPane.columnIndex="1" />
                                           <TextField fx:id="createLast" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                           <TextField fx:id="createUsername" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                          <TextField fx:id="createPass" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                           <ComboBox fx:id="cities" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <PasswordField fx:id="signUpPass" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                        </children>
                                        <VBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
@@ -148,8 +153,7 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <TextField fx:id="signInPass" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <TextField fx:id="signInUsername" GridPane.columnIndex="1" />
+                                          <TextField fx:id="signInUsername" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="164.0" GridPane.columnIndex="1" />
                                           <Label prefHeight="27.0" prefWidth="107.0" text="Username:">
                                              <font>
                                                 <Font size="18.0" />
@@ -160,6 +164,7 @@
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
+                                          <PasswordField fx:id="SignInPass" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                        </children>
                                        <VBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
@@ -207,5 +212,6 @@
             </BorderPane>
          </children>
       </StackPane>
+      <PasswordField layoutX="680.0" layoutY="451.0" />
    </children>
 </AnchorPane>

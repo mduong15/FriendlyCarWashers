@@ -17,6 +17,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import jc.Model.Account;
@@ -32,7 +33,9 @@ public class SignInScene {
 	@FXML
 	TextField signInUsername;
 	@FXML
-	TextField signInPass;
+    PasswordField SignInPass;
+	 @FXML
+	 PasswordField signUpPass;
 	@FXML
 	TextField createFirst;
 	@FXML
@@ -62,7 +65,7 @@ public class SignInScene {
 	@FXML
 	public Object signIn() throws IOException {
 		String checkUser = signInUsername.getText();
-		String checkPass = signInPass.getText();
+		String checkPass = SignInPass.getText();
 		if (checkUser == null || checkUser.equals("") ||
 				checkPass == null || checkPass.equals(""))
 		{
@@ -108,7 +111,7 @@ public class SignInScene {
 		String fName = createFirst.getText();
 		String lName = createLast.getText();
 		String city = cities.getValue();
-		String user = createUsername.getText();
+		String user = signUpPass.getText();
 		String pass = createPass.getText();
 		if (fName == null || fName.equals("") ||
 				lName == null || lName.equals("") ||
