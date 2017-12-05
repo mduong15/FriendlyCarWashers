@@ -47,9 +47,18 @@
                               <ListView fx:id="coupon" prefHeight="255.0" prefWidth="446.0" />
                               <VBox prefHeight="271.0" prefWidth="195.0" spacing="15.0">
                                  <children>
-                                    <Button fx:id="changeCity" mnemonicParsing="false" onAction="#changeCity" prefHeight="43.0" prefWidth="133.0" text="Change City" />
-                                    <Button fx:id="back" mnemonicParsing="false" onAction="#back" prefHeight="43.0" prefWidth="135.0" text="Back" />
-                                    <Button fx:id="quit" mnemonicParsing="false" onAction="#quit" prefHeight="44.0" prefWidth="135.0" text="Quit" />
+                                    <Button fx:id="changeCity" mnemonicParsing="false" onAction="#changeCity" prefHeight="43.0" prefWidth="133.0" text="Change City">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font></Button>
+                                    <Button fx:id="back" mnemonicParsing="false" onAction="#back" prefHeight="43.0" prefWidth="135.0" text="Back">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font></Button>
+                                    <Button fx:id="quit" mnemonicParsing="false" onAction="#quit" prefHeight="44.0" prefWidth="135.0" text="Quit">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font></Button>
                                  </children>
                               </VBox>
                            </children>
