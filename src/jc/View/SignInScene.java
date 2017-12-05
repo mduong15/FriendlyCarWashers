@@ -45,8 +45,6 @@ public class SignInScene {
 	@FXML
 	TextField createUsername;
 	@FXML
-	TextField createPass;
-	@FXML
 	Label createWarning;
 	@FXML
 	Label signInWarning;
@@ -111,8 +109,8 @@ public class SignInScene {
 		String fName = createFirst.getText();
 		String lName = createLast.getText();
 		String city = cities.getValue();
-		String user = signUpPass.getText();
-		String pass = createPass.getText();
+		String user = createUsername.getText();
+		String pass = signUpPass.getText();
 		if (fName == null || fName.equals("") ||
 				lName == null || lName.equals("") ||
 				city == null || city.equals("") ||
