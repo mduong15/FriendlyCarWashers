@@ -55,6 +55,7 @@ public class Main extends Application{
 					"To gain access to account-only features, such as writing reviews " +
 					"and saving all of your favorite car washes, please sign in again.");
 			alert.show();
+			swapScene(SignInScene.saveScene);
 		}
 	}
 }

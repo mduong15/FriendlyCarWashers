@@ -21,7 +21,7 @@ public class StartScene {
 		setSignInText();
 		
 		ObservableList<String> cityList=FXCollections.observableArrayList();
-		for(City c: Main.carWashes.cities)cityList.add(c.name);
+		for(City c: Main.carWashes.cities) cityList.add(c.name);
 		Collections.sort(cityList);
 		cities.setItems(cityList);
 	}

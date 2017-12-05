@@ -19,6 +19,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import jc.Model.Account;
 import jc.Model.CarWash;
 import jc.Model.City;
@@ -57,7 +59,11 @@ public class CityScene {
 	@FXML Button information;
 	@FXML Label createSignIn;
 	@FXML Button seeCoupon;
+	@FXML Button seeFavorites;
+	@FXML Button addToFavs;
+	@FXML Button seeAll;
 	private ObservableList<CarWash> washList;
+	private List<CarWash> favorites;
 	
 	public void initialize() throws FileNotFoundException{
 		sortList.setItems(sortMenu);
@@ -66,11 +72,32 @@ public class CityScene {
 		washList=FXCollections.observableArrayList();
 		title.setText("You have chosen: "+city);
 		
+		if (Account.signedIn)
+		{
+			seeFavorites.setTextFill(Color.BLACK);
+			addToFavs.setTextFill(Color.BLACK);
+			seeAll.setTextFill(Color.BLACK);
+			
+			Account currAccount = null;
+			int i = 0, end = Main.carWashes.accounts.size();
+			while (i < end && currAccount == null)
+			{
+				if (Main.carWashes.accounts.get(i).getUsername().equals(Account.signedInUser))
+					currAccount = Main.carWashes.accounts.get(i);
+				i++;
+			}
+			
+			if (currAccount == null)
+				System.out.println("Whoops something went wrong with making the account.");
+			
+			favorites = currAccount.getFavorites();
+		}
+		
 		City currCity = null;
 		int i = 0, end = Main.carWashes.cities.size();
 		while (i < end && currCity == null)
 		{
-			if (Main.carWashes.cities.get(i).name == city)
+			if (Main.carWashes.cities.get(i).name.equals(city))
 				currCity = Main.carWashes.cities.get(i);
 			i++;
 		}
@@ -85,6 +112,63 @@ public class CityScene {
 		
 		washes.setItems(washList);
 	}
+	
+	@FXML public Object seeFavorites()
+	{
+		if (Account.signedIn)
+		{
+			washList.clear();
+			
+			for (CarWash wash : favorites)
+			{
+				washList.add(wash);
+			}
+			washes.setItems(washList);
+		}
+		else
+		{
+			/*** DISPLAY POP UP TO SIGN IN***/
+			SignInScene.displaySigninWarning();
+		}
+		return null;
+	}
+	
+	@FXML public Object addToFavs()
+	{
+		if (Account.signedIn)
+		{
+			CarWash temp = washes.getSelectionModel().getSelectedItem();
+			if(temp != null)
+			{
+				favorites.add(temp);
+			}
+			
+			boolean found = false;
+			int i = 0, end = Main.carWashes.accounts.size();
+			while (i < end && !found)
+			{
+				if (Main.carWashes.accounts.get(i).getUsername().equals(Account.signedInUser))
+				{
+					Main.carWashes.accounts.get(i).setFavorites(favorites);
+					found = true;
+				}
+				i++;
+			}
+		}
+		else
+		{
+			/*** DISPLAY POP UP TO SIGN IN***/
+			SignInScene.displaySigninWarning();
+		}
+		return null;
+	}
+	
+	@FXML public Object seeAll() throws IOException
+	{
+		Main.swapScene("CityScene.fxml");
+		return null;
+	}
+	
 	@FXML public Object sortList(){
 	    String selectedAction = sortList.getValue().toString();
 	    if (selectedAction.equalsIgnoreCase("Price"))

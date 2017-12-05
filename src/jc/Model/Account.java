@@ -1,6 +1,8 @@
 package jc.Model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Account implements Serializable {
 	/**
@@ -8,6 +10,7 @@ public class Account implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String firstName, lastName, homeCity, username, password;
+	private List<CarWash> favorites;
 	public static boolean signedIn = false;
 	public static String signedInUser = "";
 	
@@ -17,6 +20,7 @@ public class Account implements Serializable {
 		this.homeCity = homeCity;
 		this.username = username;
 		this.password = password;
+		favorites = new ArrayList<CarWash>();
 	}
 
 	public String getFirstName() {
@@ -50,9 +54,23 @@ public class Account implements Serializable {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
+	
 	public String getPassword() {
 		return password;
 	}
+
+	public ArrayList<CarWash> getFavorites() {
+		if (favorites == null)
+		{
+			favorites = new ArrayList<CarWash>();
+		}
+		return new ArrayList<CarWash>(favorites);
+	}
+
+	public void setFavorites(List<CarWash> favorites) {
+		this.favorites = favorites;
+	}
+	
+	
 	
 }
