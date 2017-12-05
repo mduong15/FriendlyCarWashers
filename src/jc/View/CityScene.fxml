@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -16,7 +21,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jc.View.CityScene">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jc.View.CityScene">
    <children>
       <StackPane prefHeight="450.0" prefWidth="800.0">
          <children>
@@ -56,6 +61,7 @@
                            <children>
                               <VBox prefHeight="271.0" prefWidth="195.0" spacing="15.0">
                                  <children>
+                                    <Label fx:id="addedToFavorite" alignment="TOP_CENTER" prefHeight="21.0" prefWidth="133.0" style="-fx-opacity: 0;" text="Added to Favorites" textAlignment="CENTER" />
                                     <Button fx:id="seeFavorites" mnemonicParsing="false" onAction="#seeFavorites" prefHeight="39.0" prefWidth="156.0" text="See Favorites" textFill="#00000066">
                                        <font>
                                           <Font size="18.0" />
@@ -66,12 +72,12 @@
                                           <Font size="18.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="removeFavs" mnemonicParsing="false" onAction="#removeFavs" prefHeight="66.0" prefWidth="159.0" text="Remove from Favorites" textAlignment="CENTER" textFill="#00000066" wrapText="true">
+                                    <Button fx:id="removeFavs" disable="true" mnemonicParsing="false" onAction="#removeFavs" prefHeight="47.0" prefWidth="159.0" text="Remove Favorites" textAlignment="CENTER" textFill="#00000066" wrapText="true">
                                        <font>
-                                          <Font size="18.0" />
+                                          <Font size="17.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="seeAll" mnemonicParsing="false" onAction="#seeAll" prefHeight="44.0" prefWidth="159.0" text="See All" textFill="#00000066">
+                                    <Button fx:id="seeAll" mnemonicParsing="false" onAction="#seeAll" prefHeight="38.0" prefWidth="159.0" text="See All" textFill="#00000066">
                                        <font>
                                           <Font size="18.0" />
                                        </font>

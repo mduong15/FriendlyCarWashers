@@ -33,9 +33,9 @@ public class SignInScene {
 	@FXML
 	TextField signInUsername;
 	@FXML
-    PasswordField SignInPass;
-	 @FXML
-	 PasswordField signUpPass;
+	PasswordField SignInPass;
+	@FXML
+	PasswordField signUpPass;
 	@FXML
 	TextField createFirst;
 	@FXML
@@ -51,11 +51,12 @@ public class SignInScene {
 	@FXML
 	Label userTakenWarn;
 
-	public static String saveScene; 
-	
+	public static String saveScene;
+
 	public void initialize() throws FileNotFoundException {
-		ObservableList<String> cityList=FXCollections.observableArrayList();
-		for(City c: Main.carWashes.cities)cityList.add(c.name);
+		ObservableList<String> cityList = FXCollections.observableArrayList();
+		for (City c : Main.carWashes.cities)
+			cityList.add(c.name);
 		Collections.sort(cityList);
 		cities.setItems(cityList);
 	}
@@ -64,43 +65,37 @@ public class SignInScene {
 	public Object signIn() throws IOException {
 		String checkUser = signInUsername.getText();
 		String checkPass = SignInPass.getText();
-		if (checkUser == null || checkUser.equals("") ||
-				checkPass == null || checkPass.equals(""))
-		{
+		if (checkUser == null || checkUser.equals("") || checkPass == null || checkPass.equals("")) {
 			signInWarning.setVisible(true);
 			return null;
 		}
-		
+
 		int i = 0, len = Main.carWashes.accounts.size();
-		while (i < len && !Account.signedIn)
-		{
+		while (i < len && !Account.signedIn) {
 			Account a = Main.carWashes.accounts.get(i);
-			if (checkUser.equals(a.getUsername()) && 
-					checkPass.equals(a.getPassword()))
-			{				
+			if (checkUser.equals(a.getUsername()) && checkPass.equals(a.getPassword())) {
 				Account.signedIn = true;
 				Account.signedInUser = checkUser;
 			}
 
 			i++;
 		}
-		if (!Account.signedIn)
-		{
+		if (!Account.signedIn) {
 			signInWarning.setVisible(true);
 			return null;
 		}
-		
+
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Logged in!");
 		alert.setHeaderText("Welcome back " + checkUser + "!");
-		alert.setContentText("Now you have access to account-only features, such as writing reviews " +
-				"and saving all of your favorite car washes!");
+		alert.setContentText("Now you have access to account-only features, such as writing reviews "
+				+ "and saving all of your favorite car washes!");
 		alert.show();
-		
+
 		Main.swapScene(saveScene);
 		return null;
 	}
-	
+
 	@FXML
 	public Object createAccount() throws IOException {
 		createWarning.setVisible(false);
@@ -111,39 +106,32 @@ public class SignInScene {
 		String city = cities.getValue();
 		String user = createUsername.getText();
 		String pass = signUpPass.getText();
-		if (fName == null || fName.equals("") ||
-				lName == null || lName.equals("") ||
-				city == null || city.equals("") ||
-				user == null || user.equals("") ||
-				pass == null || pass.equals(""))
-		{
+		if (fName == null || fName.equals("") || lName == null || lName.equals("") || city == null || city.equals("")
+				|| user == null || user.equals("") || pass == null || pass.equals("")) {
 			createWarning.setVisible(true);
 			return null;
 		}
-		
-		for (Account a : Main.carWashes.accounts)
-		{
-			if (a.getUsername().equals(fName))
-			{
+
+		for (Account a : Main.carWashes.accounts) {
+			if (a.getUsername().equals(fName)) {
 				userTakenWarn.setVisible(true);
 				return null;
 			}
 		}
-		
+
 		Account newAcc = new Account(fName, lName, city, user, pass);
 		Main.carWashes.accounts.add(newAcc);
-		
+
 		Account.signedIn = true;
 		Account.signedInUser = user;
-		
+
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Account created!");
 		alert.setHeaderText("Account created!");
-		alert.setContentText("Now you have access to account-only features, such as writing reviews " +
-				"and saving all of your favorite car washes!");
+		alert.setContentText("Now you have access to account-only features, such as writing reviews "
+				+ "and saving all of your favorite car washes!");
 		alert.show();
-		
-		
+
 		Main.swapScene(saveScene);
 		return null;
 	}
@@ -153,15 +141,14 @@ public class SignInScene {
 		Main.swapScene(saveScene);
 		return null;
 	}
-	
-	public static void displaySigninWarning()
-	{
+
+	public static void displaySigninWarning() {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Account needed!");
 		alert.setHeaderText("Please sign in!");
-		alert.setContentText("In order to use this feature, you must be signed in." +
-				"\nClick on the button in the top right corner to create an account or sign in.");
+		alert.setContentText("In order to use this feature, you must be signed in."
+				+ "\nClick on the button in the top right corner to create an account or sign in.");
 		alert.show();
-		
+
 	}
 }
