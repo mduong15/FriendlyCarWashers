@@ -41,7 +41,7 @@ public class Review implements Serializable {
 	         starRate += "★";
 			
 			for (int i = 0; i < 5 - rating; i++)
-				starRate += "☆ ";
+				starRate += "☆";
 		return starRate;
 	
 	}
