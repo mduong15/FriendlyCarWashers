@@ -37,24 +37,6 @@ public class CarWashes implements Serializable {
 			public void run() {
 				// TODO Auto-generated method stub
 				try (ObjectOutputStream objIn = new ObjectOutputStream(new FileOutputStream(new File("Cities.ser")))) {
-//					for (int i = 0; i < 3; i++)
-//					{
-//						City temp = cities.get(i);
-//						System.out.println(temp.name);
-//						Collections.sort(temp.carWashes, new Comparator<CarWash>() {
-//							public int compare(CarWash c1, CarWash c2) {
-//								// You should ensure that list doesn't contain null values!
-//								return c1.getName().compareTo(c2.getName());
-//							}
-//						});
-//						List<CarWash> washes = temp.carWashes;
-//						for (CarWash c : washes)
-//						{
-//							System.out.println(c.getName());
-//						}
-//						System.out.println();
-//					}
-//					
 					objIn.writeObject(cities);
 					objIn.writeObject(accounts);
 				} catch (IOException e1) {
