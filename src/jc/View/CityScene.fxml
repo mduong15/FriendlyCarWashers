@@ -47,6 +47,11 @@
                                     <Font size="21.0" />
                                  </font>
                               </Label>
+                              <Label fx:id="logInWarn" text="Log in to use these features" underline="true">
+                                 <GridPane.margin>
+                                    <Insets bottom="-20.0" left="10.0" />
+                                 </GridPane.margin>
+                              </Label>
                            </children>
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="289.0" minWidth="10.0" prefWidth="282.0" />
@@ -63,7 +68,7 @@
                            <children>
                               <VBox prefHeight="271.0" prefWidth="195.0" spacing="15.0">
                                  <children>
-                                    <Label fx:id="addedToFavorite" alignment="TOP_CENTER" prefHeight="21.0" prefWidth="133.0" style="-fx-opacity: 0;" text="Added to Favorites" textAlignment="CENTER" />
+                                    <Label fx:id="addedToFavorite" alignment="TOP_CENTER" prefHeight="21.0" prefWidth="155.0" style="-fx-opacity: 0;" text="Added to Favorites" textAlignment="CENTER" />
                                     <Button fx:id="seeFavorites" mnemonicParsing="false" onAction="#seeFavorites" prefHeight="39.0" prefWidth="156.0" text="See Favorites" textFill="#00000066">
                                        <font>
                                           <Font size="18.0" />

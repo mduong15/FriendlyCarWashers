@@ -30,6 +30,7 @@ public class ReviewScene {
 	@FXML Button quit2;
 	@FXML Button changeCity;
 	@FXML Label createSignIn;
+	@FXML Label logInWarn;
 	
 	private ObservableList<Review> rev;
 	
@@ -45,6 +46,7 @@ public class ReviewScene {
 		 
 		 if (Account.signedIn)
 		 {
+			 logInWarn.setVisible(false);
 			 review.setTextFill(Color.BLACK);
 			 if (userReviews.containsKey(Account.signedInUser))
 				 review.setText("Edit Review");

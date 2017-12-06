@@ -51,6 +51,8 @@ public class CityScene {
 	Button seeAll;
 	@FXML
 	Label addedToFavorite;
+	@FXML
+	Label logInWarn;
 
 	private ObservableList<CarWash> washList;
 	private List<CarWash> favorites;
@@ -63,6 +65,7 @@ public class CityScene {
 		title.setText("You have chosen: " + city);
 
 		if (Account.signedIn) {
+			logInWarn.setVisible(false);
 			seeFavorites.setTextFill(Color.BLACK);
 			addToFavs.setTextFill(Color.BLACK);
 			seeAll.setTextFill(Color.BLACK);
@@ -80,6 +83,12 @@ public class CityScene {
 				System.out.println("Whoops something went wrong with making the account.");
 
 			favorites = currAccount.getFavorites();
+		}
+		else
+		{
+			addedToFavorite.setText("Log in to use these features");
+			addedToFavorite.setUnderline(true);
+			addedToFavorite.setStyle("-fx-opacity: 1");
 		}
 
 		City currCity = null;
