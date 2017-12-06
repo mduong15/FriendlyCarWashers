@@ -228,7 +228,7 @@ public class CityScene {
 					return 0;
 				}
 			});
-			indicator.setText("▲");
+			indicator.setText("▲"); // up arrow
 			indicator.setVisible(true);
 		} else {
 			Collections.sort(washList, new Comparator<CarWash>() {
@@ -240,7 +240,7 @@ public class CityScene {
 					return 0;
 				}
 			});
-			indicator.setText("▼");
+			indicator.setText("▼"); // down arrow
 			indicator.setVisible(true);
 		}
 		return null;

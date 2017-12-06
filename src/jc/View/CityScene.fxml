@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -21,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jc.View.CityScene">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jc.View.CityScene">
    <children>
       <StackPane prefHeight="450.0" prefWidth="800.0">
          <children>
@@ -47,7 +42,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Text>
-                              <Label fx:id="indicator" prefHeight="17.0" prefWidth="19.0" text="." textFill="#3071a6" visible="false" GridPane.columnIndex="3">
+                              <Label fx:id="indicator" prefHeight="31.0" prefWidth="35.0" text="." textFill="#3071a6" visible="false" GridPane.columnIndex="3">
                                  <font>
                                     <Font size="21.0" />
                                  </font>
