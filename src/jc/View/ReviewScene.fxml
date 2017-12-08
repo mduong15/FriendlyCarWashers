@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -11,9 +16,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jc.View.ReviewScene">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jc.View.ReviewScene">
    <children>
-      <StackPane prefHeight="450.0" prefWidth="800.0">
+      <StackPane prefHeight="450.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <BorderPane prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #e1e6ef;">
                <top>
@@ -42,14 +47,6 @@
                               <ListView fx:id="reviewView" focusTraversable="false" prefHeight="255.0" prefWidth="446.0" />
                               <VBox prefHeight="245.0" prefWidth="199.0" spacing="15.0">
                                  <children>
-                                    <Label fx:id="logInWarn" text="Log in to write a review" underline="true">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets bottom="-15.0" />
-                                       </VBox.margin>
-                                    </Label>
                                     <Button fx:id="review" mnemonicParsing="false" onAction="#review" prefHeight="36.0" prefWidth="145.0" text="Write Review" textFill="#00000066">
                                        <font>
                                           <Font size="18.0" />
@@ -88,7 +85,7 @@
             </BorderPane>
             <BorderPane pickOnBounds="false" prefHeight="200.0" prefWidth="200.0">
                <top>
-                  <Label fx:id="createSignIn" onMouseClicked="#createSignIn" text="Create Account / Sign In" textFill="#1111dd" underline="true" BorderPane.alignment="CENTER_RIGHT">
+                  <Label fx:id="createSignIn" onMouseClicked="#createSignIn" text="Create Account / Sign In" textFill="#1111dd" BorderPane.alignment="CENTER_RIGHT">
                      <BorderPane.margin>
                         <Insets right="15.0" />
                      </BorderPane.margin>

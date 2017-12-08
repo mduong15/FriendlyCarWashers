@@ -20,7 +20,8 @@ import jc.Model.City;
 
 public class CityScene {
 	static String city;
-	ObservableList<String> sortMenu = FXCollections.observableArrayList("Alphabet", "Price", "Rating");
+	ObservableList<String> sortMenu=FXCollections.observableArrayList
+			("Alphabet", "Price", "Rating");
 	@FXML
 	Label title;
 	@FXML
@@ -51,8 +52,6 @@ public class CityScene {
 	Button seeAll;
 	@FXML
 	Label addedToFavorite;
-	@FXML
-	Label logInWarn;
 
 	private ObservableList<CarWash> washList;
 	private List<CarWash> favorites;
@@ -65,7 +64,6 @@ public class CityScene {
 		title.setText("You have chosen: " + city);
 
 		if (Account.signedIn) {
-			logInWarn.setVisible(false);
 			seeFavorites.setTextFill(Color.BLACK);
 			addToFavs.setTextFill(Color.BLACK);
 			seeAll.setTextFill(Color.BLACK);
@@ -83,12 +81,6 @@ public class CityScene {
 				System.out.println("Whoops something went wrong with making the account.");
 
 			favorites = currAccount.getFavorites();
-		}
-		else
-		{
-			addedToFavorite.setText("Log in to use these features");
-			addedToFavorite.setUnderline(true);
-			addedToFavorite.setStyle("-fx-opacity: 1");
 		}
 
 		City currCity = null;
@@ -215,46 +207,45 @@ public class CityScene {
 		return null;
 	}
 
-	@FXML
-	public Object sortList() {
-		String selectedAction = sortList.getValue().toString();
-
-		if (selectedAction.equalsIgnoreCase("Alphabet")) {
-			Collections.sort(washList, new Comparator<CarWash>() {
-				public int compare(CarWash c1, CarWash c2) {
-					// You should ensure that list doesn't contain null values!
-					return c1.getName().compareTo(c2.getName());
-				}
-			});
-			indicator.setVisible(false);
-		} else if (selectedAction.equalsIgnoreCase("Price")) {
-			Collections.sort(washList, new Comparator<CarWash>() {
-				public int compare(CarWash c1, CarWash c2) {
-					if (c1.getPrice() > c2.getPrice())
-						return 1;
-					else if (c1.getPrice() < c2.getPrice())
-						return -1;
+	@FXML public Object sortList(){
+	    String selectedAction = sortList.getValue().toString();
+	    
+	    if (selectedAction.equalsIgnoreCase("Alphabet"))
+	    {
+	    	Collections.sort(washList,new Comparator<CarWash>() {
+	            public int compare(CarWash c1, CarWash c2) {
+	                //You should ensure that list doesn't contain null values!
+	                return c1.getName().compareTo(c2.getName());
+	            }
+	           });
+	    	indicator.setVisible(false);
+	    }
+	    else if (selectedAction.equalsIgnoreCase("Price"))
+	    {
+	    	Collections.sort(washList,new Comparator<CarWash>(){
+				public int compare(CarWash c1,CarWash c2){
+					if(c1.getPrice()>c2.getPrice())return 1;
+					else if(c1.getPrice()<c2.getPrice())return -1;
 					return 0;
 				}
 			});
-			indicator.setText("▲"); // up arrow
-			indicator.setVisible(true);
-		} else {
-			Collections.sort(washList, new Comparator<CarWash>() {
-				public int compare(CarWash c1, CarWash c2) {
-					if (c1.getAverageRating() > c2.getAverageRating())
-						return -1;
-					else if (c1.getAverageRating() < c2.getAverageRating())
-						return 1;
+	    	indicator.setText("▲");
+	    	indicator.setVisible(true);
+	    }
+	    else 
+	    {
+	    	Collections.sort(washList,new Comparator<CarWash>(){
+				public int compare(CarWash c1,CarWash c2){
+					if(c1.getAverageRating()>c2.getAverageRating())return -1;
+					else if(c1.getAverageRating()<c2.getAverageRating())return 1;
 					return 0;
 				}
 			});
-			indicator.setText("▼"); // down arrow
-			indicator.setVisible(true);
-		}
-		return null;
-	}
-
+	    	indicator.setText("▼");
+	    	indicator.setVisible(true);
+	    }
+	return null;
+}
 	@FXML
 	public Object select() throws IOException {
 		ReviewScene.cw = washes.getSelectionModel().getSelectedItem();

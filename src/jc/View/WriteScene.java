@@ -91,7 +91,7 @@ public class WriteScene {
 //		else
 //			pw.write(";Not");
 //		pw.close();
-		Main.swapScene("ReviewScene.fxml");
+    	Main.swapScene("ReviewScene.fxml");
 		return null;
 	}
 
