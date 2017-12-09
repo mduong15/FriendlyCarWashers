@@ -23,24 +23,22 @@ public class MoreInformationScene {
 	TextArea moreInformationText;
 	@FXML
 	Label createSignIn;
-	
-	public void initialize() throws FileNotFoundException
-	{
+
+	public void initialize() throws FileNotFoundException {
 		setSignInText();
-		
-		 title.setText(ReviewScene.cw.getName()); //SET CAR WASH LOCATION NAME
-		 File file = new File("./src/DataMock/MoreInformation.txt");
-		 Scanner inputFile = new Scanner(file);
-		 String carWashName= "";
-		 String tempCarWashName = "";
-		 //DISPLAY CONTACT AND OPERATIONAL HOUR OF CAR WASH LOCATION
-		 while(inputFile.hasNext()) 
-		 {
-			 carWashName += inputFile.nextLine()+"\n";
-			 tempCarWashName = carWashName;
-		 }
-		 moreInformationText.setText(tempCarWashName);
-		 inputFile.close();
+
+		title.setText(ReviewScene.cw.getName()); // SET CAR WASH LOCATION NAME
+		File file = new File("./src/DataMock/MoreInformation.txt");
+		Scanner inputFile = new Scanner(file);
+		String carWashName = "";
+		String tempCarWashName = "";
+		// DISPLAY CONTACT AND OPERATIONAL HOUR OF CAR WASH LOCATION
+		while (inputFile.hasNext()) {
+			carWashName += inputFile.nextLine() + "\n";
+			tempCarWashName = carWashName;
+		}
+		moreInformationText.setText(tempCarWashName);
+		inputFile.close();
 
 	}
 
@@ -74,19 +72,18 @@ public class MoreInformationScene {
 		setSignInText();
 		return null;
 	}
-	
-	private void setSignInText()
-	{
+
+	private void setSignInText() {
 		if (Account.signedIn)
 			createSignIn.setText("Log out");
 		else
 			createSignIn.setText("Create Account / Sign In");
 	}
-	
-//	@FXML public Object writeReview() throws IOException
-//	{
-//		Main.swapScene("WriteScene.fxml");
-//		return null;
-//	}
+
+	// @FXML public Object writeReview() throws IOException
+	// {
+	// Main.swapScene("WriteScene.fxml");
+	// return null;
+	// }
 
 }
