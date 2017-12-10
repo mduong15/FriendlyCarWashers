@@ -82,6 +82,10 @@
     -fx-background-repeat: stretch;   
     -fx-background-size: cover;
 }
+#coupons{
+	-fx-opacity: 0.80;
+	-fx-effect: dropshadow( three-pass-box , rgba(48,124,175,0.9) , 5, 0.0 , 0 , 1 );
+}
 
 #writeScene{
 	-fx-background-image: url("background.jpg");
