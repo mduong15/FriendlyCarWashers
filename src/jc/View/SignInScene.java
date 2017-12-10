@@ -7,6 +7,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.Scanner;
+
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -24,25 +30,25 @@ import jc.Model.City;
 
 public class SignInScene {
 	@FXML
-	Button signIn;
+	JFXButton signIn;
 	@FXML
-	Button createAccount;
+	JFXButton createAccount;
 	@FXML
-	Button cancel;
+	JFXButton cancel;
 	@FXML
-	TextField signInUsername;
+	JFXTextField signInUsername;
 	@FXML
-	PasswordField SignInPass;
+	JFXPasswordField SignInPass;
 	@FXML
-	PasswordField signUpPass;
+	JFXPasswordField signUpPass;
 	@FXML
-	TextField createFirst;
+	JFXTextField createFirst;
 	@FXML
-	TextField createLast;
+	JFXTextField createLast;
 	@FXML
-	ComboBox<String> cities;
+	JFXComboBox<String> cities;
 	@FXML
-	TextField createUsername;
+	JFXTextField createUsername;
 	@FXML
 	Label createWarning;
 	@FXML

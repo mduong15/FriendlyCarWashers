@@ -1,8 +1,12 @@
 package jc.View;
 
 import java.io.IOException;
+
+import com.jfoenix.controls.JFXButton;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import jc.Model.Account;
@@ -12,13 +16,13 @@ public class CouponScene {
 	@FXML
 	ListView<String> coupon;
 	@FXML
-	Label createSignIn;
+	Hyperlink createSignIn;
 	@FXML
-	Button quit;
+	JFXButton quit;
 	@FXML
-	Button back;
+	JFXButton back;
 	@FXML
-	Button changeCity;
+	JFXButton changeCity;
 	@FXML
 	Label title;
 

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
+<?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -14,35 +16,38 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jc.View.StartScene">
+<AnchorPane minHeight="250.0" minWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jc.View.StartScene">
    <children>
-      <StackPane minHeight="250.0" minWidth="400.0" prefHeight="450.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <StackPane prefHeight="450.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <BorderPane prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #e1e6ef;">
+            <BorderPane id="startScene" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #e1e6ef;">
                <center>
                   <VBox prefHeight="200.0" prefWidth="100.0" spacing="50.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" text="Please choose a city location" textAlignment="CENTER">
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="Please choose a city location" textAlignment="CENTER" textFill="#08adff">
                            <padding>
                               <Insets bottom="5.0" left="80.0" right="5.0" top="15.0" />
                            </padding>
                            <font>
-                              <Font size="24.0" />
+                              <Font name="Georgia" size="24.0" />
                            </font>
                         </Label>
                         <HBox prefHeight="256.0" prefWidth="509.0" spacing="50.0">
                            <children>
-                              <ListView fx:id="cities" prefHeight="181.0" prefWidth="200.0" />
-                              <Button fx:id="select" mnemonicParsing="false" onAction="#select" text="Select!">
+                              <JFXListView fx:id="cities" opacity="0.37" prefHeight="256.0" prefWidth="190.0" />
+                              <JFXButton fx:id="select" onAction="#select" prefHeight="44.0" prefWidth="83.0" ripplerFill="WHITE" style="-fx-background-color: #0d6eb8;" text="SELECT" textFill="WHITE">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
-                              </Button>
+                              </JFXButton>
                            </children>
                            <padding>
                               <Insets left="110.0" />
@@ -51,62 +56,36 @@
                      </children>
                   </VBox>
                </center>
-               <right>
-                  <ImageView fx:id="splash" fitHeight="254.0" fitWidth="305.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                     <BorderPane.margin>
-                        <Insets right="25.0" />
-                     </BorderPane.margin>
-                     <image>
-                        <Image url="@../../Images/pic.png" />
-                     </image>
-                  </ImageView>
-               </right>
                <top>
                   <GridPane prefHeight="64.0" prefWidth="800.0" BorderPane.alignment="CENTER">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="743.0" minWidth="0.0" prefWidth="47.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="790.0" minWidth="10.0" prefWidth="747.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="393.0" minWidth="0.0" prefWidth="9.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="790.0" minWidth="10.0" prefWidth="532.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="393.0" minWidth="0.0" prefWidth="222.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="48.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="40.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="17.0" minHeight="0.0" prefHeight="17.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label contentDisplay="RIGHT" prefHeight="109.0" prefWidth="746.0" text="Welcome To Friendly Car Wash !" GridPane.columnIndex="1" GridPane.rowSpan="3">
+                        <Hyperlink fx:id="createSignIn" onAction="#createSignIn" prefHeight="33.0" prefWidth="186.0" text="Create Account/ Sign in" GridPane.columnIndex="2">
                            <font>
-                              <Font size="36.0" />
+                              <Font size="16.0" />
                            </font>
-                           <graphic>
-                              <GridPane>
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                              </GridPane>
-                           </graphic>
-                           <padding>
-                              <Insets bottom="5.0" left="15.0" right="5.0" top="15.0" />
-                           </padding>
-                        </Label>
+                        </Hyperlink>
+                        <ImageView fitHeight="166.0" fitWidth="540.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <image>
+                              <Image url="@../../Images/logo.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </GridPane>
                </top>
-            </BorderPane>
-            <BorderPane pickOnBounds="false" prefHeight="200.0" prefWidth="200.0">
-               <top>
-                  <Label fx:id="createSignIn" onMouseClicked="#createSignIn" text="Create Account / Sign In" textFill="#1111dd" BorderPane.alignment="CENTER_RIGHT">
-                     <BorderPane.margin>
-                        <Insets right="15.0" />
-                     </BorderPane.margin>
-                  </Label>
-               </top>
+               <stylesheets>
+                  <URL value="@../../../../New%20Layout/Theme.css" />
+                  <URL value="@Theme.css" />
+               </stylesheets>
             </BorderPane>
          </children>
       </StackPane>
