@@ -27,7 +27,7 @@ import jc.Model.City;
 public class CityScene {
 	static String city;
 	ObservableList<String> sortMenu=FXCollections.observableArrayList
-			("Alphabet", "Price", "Rating");
+			("Alphabetical", "Price", "Rating");
 	@FXML
 	Label title;
 	@FXML
@@ -87,6 +87,12 @@ public class CityScene {
 				System.out.println("Whoops something went wrong with making the account.");
 
 			favorites = currAccount.getFavorites();
+		}
+		else
+		{
+			addedToFavorite.setText("Log in to use these features");
+			addedToFavorite.setUnderline(true);
+			addedToFavorite.setStyle("-fx-opacity: 1");
 		}
 
 		City currCity = null;
@@ -216,7 +222,7 @@ public class CityScene {
 	@FXML public Object sortList(){
 	    String selectedAction = sortList.getValue().toString();
 	    
-	    if (selectedAction.equalsIgnoreCase("Alphabet"))
+	    if (selectedAction.equalsIgnoreCase("Alphabetical"))
 	    {
 	    	Collections.sort(washList,new Comparator<CarWash>() {
 	            public int compare(CarWash c1, CarWash c2) {

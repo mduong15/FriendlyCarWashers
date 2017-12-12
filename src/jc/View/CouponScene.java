@@ -29,7 +29,7 @@ public class CouponScene {
 	// DISPLAY CITY NAME WHEN CHOSEN
 	public void initialize() {
 		setSignInText();
-		title.setText("Coupon for " + CityScene.city);
+		title.setText("Available Coupons");
 	}
 
 	// DIRECT TO THE CREATE ACCOUNT/SIGN IN SCENE

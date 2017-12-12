@@ -33,6 +33,7 @@ public class ReviewScene {
 	@FXML JFXButton quit2;
 	@FXML JFXButton changeCity;
 	@FXML Hyperlink createSignIn;
+	@FXML Label logInWarn;
 	
 	private ObservableList<Review> rev;
 	
@@ -46,8 +47,17 @@ public class ReviewScene {
 		 if (userReviews != null)
 			 userReviews.forEach((k, v)->rev.add((Review)v));
 		 
+		 // Calculate the real average from the reviews
+		 double sum = 0.0;
+		 for (Review r : rev)
+		 {
+			 sum += r.getmRating();
+		 }
+		 cw.setAverageRating(sum / (double)rev.size());
+		 
 		 if (Account.signedIn)
 		 {
+			 logInWarn.setVisible(false);
 			 review.setTextFill(Color.WHITE);
 			 if (userReviews.containsKey(Account.signedInUser))
 				 review.setText("Edit Review");

@@ -36,6 +36,14 @@
                               <ListView fx:id="reviewView" focusTraversable="false" prefHeight="255.0" prefWidth="446.0" />
                               <VBox prefHeight="245.0" prefWidth="199.0" spacing="15.0">
                                  <children>
+                                    <Label fx:id="logInWarn" text="Log in to write a review" underline="true">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="-15.0" />
+                                       </VBox.margin>
+                                    </Label>
                                     <JFXButton fx:id="review" onAction="#review" prefHeight="40.0" prefWidth="139.0" ripplerFill="WHITE" style="-fx-background-color: #1587d0;" text="Write Review" textFill="#6b6b6b">
                                        <font>
                                           <Font name="Georgia" size="18.0" />
