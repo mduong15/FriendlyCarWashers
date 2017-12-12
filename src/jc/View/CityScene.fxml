@@ -82,7 +82,7 @@
                               <ListView fx:id="washes" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="433.0" />
                               <VBox prefHeight="271.0" prefWidth="195.0" spacing="15.0">
                                  <children>
-                                    <JFXButton fx:id="select" onAction="#select" prefHeight="33.0" prefWidth="137.0" ripplerFill="WHITE" style="-fx-background-color: #1587d0;" text="Select" textFill="WHITE">
+                                    <JFXButton fx:id="select" onAction="#select" prefHeight="33.0" prefWidth="137.0" ripplerFill="WHITE" style="-fx-background-color: #1587d0;" text="See Reviews" textFill="WHITE">
                                        <font>
                                           <Font name="Georgia" size="18.0" />
                                        </font>
