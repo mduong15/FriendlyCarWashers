@@ -64,7 +64,7 @@
                                           <Font name="Georgia" size="18.0" />
                                        </font>
                                     </JFXButton>
-                                    <JFXButton fx:id="removeFavs" layoutX="10.0" layoutY="94.0" onAction="#removeFavs" prefHeight="37.0" prefWidth="176.0" ripplerFill="WHITE" style="-fx-background-color: #73bddc;" text="Remove Favorites" textFill="#949494">
+                                    <JFXButton fx:id="removeFavs" disable="true" layoutX="10.0" layoutY="94.0" onAction="#removeFavs" prefHeight="37.0" prefWidth="176.0" ripplerFill="WHITE" style="-fx-background-color: #73bddc;" text="Remove Favorites" textFill="#949494">
                                        <font>
                                           <Font name="Georgia" size="18.0" />
                                        </font>

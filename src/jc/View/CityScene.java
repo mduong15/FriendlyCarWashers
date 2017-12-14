@@ -19,6 +19,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import jc.Model.Account;
 import jc.Model.CarWash;
